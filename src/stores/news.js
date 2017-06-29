@@ -25,6 +25,7 @@ class News {
               title: value.attributes.title,
               author: value.attributes.author,
               timestamp: new Date(value.attributes.date).getTime(),
+              tags: value.attributes.tags,
               body: value.body
             })
 
@@ -72,6 +73,7 @@ class News {
 
     if (checkedFiles !== null) {
       newsFiles = checkedFiles.reduce((files, filename) => {
+        /** Remove deleted files from the contents map. */
         if (newsFiles.includes(filename) === true) {
           files.push(filename)
         } else {
