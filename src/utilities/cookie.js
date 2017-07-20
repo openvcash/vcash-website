@@ -11,7 +11,7 @@ export const setCookie = (key, value, days = 365) => {
     '=',
     value,
     '; expires=',
-    new Date(Date.now() + (1000 * 60 * 60 * 24 * days)).toGMTString(),
+    new Date(Date.now() + 1000 * 60 * 60 * 24 * days).toGMTString(),
     '; path=/'
   )
 }

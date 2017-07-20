@@ -85,10 +85,10 @@ class News {
     }
 
     /** Read the files and save parsed markdown. */
-    newsFiles.forEach(async filename => {
+    for (let filename of newsFiles) {
       const markdown = await readFile(join(this.newsDir, filename), 'utf-8')
       this.contents.set(filename, frontMatter(markdown))
-    })
+    }
 
     /** Clear changed files. */
     this.changedFiles.clear()

@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch'
 /**
  * Initialize a i18next instance.
  * @function i18n
- * @param {object} resources - Translations.
+ * @param {object} resources - Translation.
  * @param {string} lng - Language.
  * @return {object} i18next instance.
  */
@@ -24,7 +24,7 @@ export const i18n = (resources, lng) => {
  * @function fetchTranslation
  * @param {string} language - Language to fetch.
  * @param {array} files - Translation files to fetch.
- * @param {string} url - Url where locales are available.
+ * @param {string} url - Locale location.
  */
 export async function fetchTranslation (language, files, url) {
   let translation = {}
