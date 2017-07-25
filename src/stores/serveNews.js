@@ -8,7 +8,7 @@ const frontMatter = require('front-matter')
 const readdir = promisify(fs.readdir)
 const readFile = promisify(fs.readFile)
 
-class News {
+class ServeNews {
   constructor () {
     this.newsDir = join(__dirname, '..', '..', 'content', 'news')
 
@@ -21,7 +21,7 @@ class News {
           .entries()
           .reduce((news, [key, value]) => {
             news.push({
-              filename: key,
+              id: key.split('.md')[0],
               title: value.attributes.title,
               author: value.attributes.author,
               timestamp: new Date(value.attributes.date).getTime(),
@@ -96,7 +96,7 @@ class News {
 }
 
 /** Initialize a new globally used store. */
-const news = new News()
+const serveNews = new ServeNews()
 
 /** Export initialized store. */
-module.exports = news
+module.exports = serveNews

@@ -1,21 +1,29 @@
 const express = require('express')
+const favicon = require('serve-favicon')
 const next = require('next')
+const mobxReact = require('mobx-react')
 const { join } = require('path')
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 
 /** Required stores. */
-const news = require('./src/stores/news.js')
+const serveNews = require('./src/stores/serveNews')
+
+/** Use MobX static rendering. */
+mobxReact.useStaticRendering(true)
 
 app
   .prepare()
   .then(() => {
     const server = express()
 
+    /** Set favicon. */
+    server.use(favicon(join(__dirname, 'static', 'images', 'favicon.ico')))
+
     /** Serve news markdown files in JSON on /api/news. */
     server.get('/api/news', (req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json' })
-      return res.end(news.json)
+      return res.end(serveNews.json)
     })
 
     /** Serve network crawler data on /api/peers. */
