@@ -3,8 +3,8 @@
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Standard style guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-:honeybee: Vcash community website with content from the original website and
-whitepapers.
+:honeybee: Vcash community website built using Next.js, with content from the
+original website and whitepapers.
 
 ## Table of Contents
 - [Install from source](#install-from-source)

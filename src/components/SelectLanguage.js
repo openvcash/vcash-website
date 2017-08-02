@@ -29,7 +29,7 @@ class SelectLanguage extends React.Component {
 
   render () {
     return (
-      <div className='flex'>
+      <div className='flex-sb'>
         <div className='flex'>
           <i className='material-icons md-16'>language</i>
           <p>
@@ -43,7 +43,7 @@ class SelectLanguage extends React.Component {
           optionFilterProp='children'
           showSearch
           size='small'
-          style={{ margin: '0 0 0 32px', width: '120px' }}
+          style={{ width: '120px' }}
         >
           {this.languages.map(entry =>
             <Select.Option key={entry.language} value={entry.language}>
