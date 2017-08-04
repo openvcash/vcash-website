@@ -4,7 +4,6 @@ import { Provider } from 'mobx-react'
 import { parse as parseCookie } from 'cookie'
 import { get as getCookie } from 'js-cookie'
 import { i18n, fetchTranslation } from '../src/utilities/i18next'
-import fetch from 'isomorphic-unfetch'
 
 /** Required comonents. */
 import Layout from '../src/components/Layout'
@@ -18,7 +17,6 @@ class NewsPage extends React.Component {
     const initProps = {
       isServer: typeof window === 'undefined',
       language: 'en-US',
-      newsPosts: [],
       translation: {}
     }
 
@@ -40,10 +38,6 @@ class NewsPage extends React.Component {
       'http://localhost:3000/static/locales/'
     )
 
-    /** Fetch news posts. */
-    const newsPosts = await fetch('http://localhost:3000/api/news')
-    initProps.newsPosts = await newsPosts.json()
-
     /** Return initial properties. */
     return initProps
   }
@@ -51,7 +45,7 @@ class NewsPage extends React.Component {
   constructor (props) {
     super(props)
     this.i18n = i18n(props.translation, props.language)
-    this.news = initNews(props.isServer, props.newsPosts)
+    this.news = initNews(props.isServer)
   }
 
   render () {
