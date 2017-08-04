@@ -16,7 +16,7 @@ class Footer extends React.Component {
     return (
       <footer>
         <div className='flex-sb footer wrapper'>
-          <div style={{ minWidth: '300px' }}>
+          <div className='footer-column'>
             <SelectLanguage />
           </div>
           <div>
@@ -61,7 +61,7 @@ class Footer extends React.Component {
               </a>
             </div>
           </div>
-          <div style={{ minWidth: '300px' }}>
+          <div className='footer-column'>
             <Newsletter />
           </div>
         </div>

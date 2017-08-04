@@ -26,20 +26,16 @@ class Header extends React.Component {
         </Head>
         <div className='navigation shadow'>
           <div className='flex-sb wrapper'>
-            <div className='flex'>
-              <Link href='/'>
-                <a className='flex header-link'>
-                  <img
-                    src='/static/images/logoGrey.png'
-                    width='32px'
-                    height='32px'
-                  />
-                  <p style={{ fontSize: '18px', margin: '0 0 0 10px' }}>
-                    Vcash
-                  </p>
-                </a>
-              </Link>
-            </div>
+            <Link href='/'>
+              <a className='flex header-link' style={{ margin: '0' }}>
+                <img
+                  src='/static/images/logoGrey.png'
+                  width='32px'
+                  height='32px'
+                />
+                <p style={{ fontSize: '18px', margin: '0 0 0 10px' }}>Vcash</p>
+              </a>
+            </Link>
             <div className='flex'>
               <Link prefetch href='/news'>
                 <a className='flex header-link' title={this.t('news')}>
