@@ -4,7 +4,6 @@ author: xCore
 date: 2017-02-05
 tags: development-updates
 ---
-# Community Version 0.5.1 Deployment Started
 The community version 0.5.1 has been pushed to github. Linux users can already
 run the upgrade. I published the Windows daemons on the
 [Wallets](https://vcash.info/downloads) page. The prebuilt GUI version will be
