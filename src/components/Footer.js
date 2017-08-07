@@ -74,7 +74,6 @@ class Footer extends React.Component {
             Vcash {this.t('developers')} 2013 - {new Date().getFullYear()}
           </p>
         </div>
-
         <div
           className='flex'
           style={{ justifyContent: 'center', margin: '5px 0 10px 0' }}

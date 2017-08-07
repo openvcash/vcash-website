@@ -12,7 +12,7 @@ class NewsPost extends React.Component {
   }
 
   render () {
-    const { title, id, author, timestamp, body } = this.props.post
+    const { author, body, id, timestamp, title } = this.props.post
     return (
       <div className={this.props.pin === true && 'news-post-pinned'}>
         <div className='flex-sb news-post'>
