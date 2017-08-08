@@ -67,32 +67,11 @@ class Footer extends React.Component {
         </div>
         <div
           className='flex'
-          style={{ justifyContent: 'center', margin: '15px 0 0 0' }}
+          style={{ justifyContent: 'center', margin: '15px 0 10px 0' }}
         >
           <i className='material-icons md-16'>copyright</i>
           <p>
             Vcash {this.t('developers')} 2013 - {new Date().getFullYear()}
-          </p>
-        </div>
-        <div
-          className='flex'
-          style={{ justifyContent: 'center', margin: '5px 0 10px 0' }}
-        >
-          <p>
-            Patterns by{' '}
-            <a
-              href='https://www.toptal.com/designers/subtlepatterns/'
-              target='_blank'
-            >
-              Subtle Patterns
-            </a>{' '}
-            /{' '}
-            <a
-              href='https://creativecommons.org/licenses/by-sa/3.0/legalcode'
-              target='_blank'
-            >
-              CC BY-SA 3.0
-            </a>
           </p>
         </div>
       </footer>

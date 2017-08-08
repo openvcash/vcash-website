@@ -1,8 +1,9 @@
 import React from 'react'
 import { I18nextProvider } from 'react-i18next'
-import { i18n, fetchTranslation } from '../src/utilities/i18next'
+import { Provider } from 'mobx-react'
 import { parse as parseCookie } from 'cookie'
 import { get as getCookie } from 'js-cookie'
+import { i18n, fetchTranslation } from '../src/utilities/i18next'
 
 /** Required components. */
 import Features from '../src/components/Features'
@@ -10,16 +11,18 @@ import GetStarted from '../src/components/GetStarted'
 import Layout from '../src/components/Layout'
 
 class HomePage extends React.Component {
-  /** Initial component properties. */
   static async getInitialProps ({ req }) {
-    const initProps = { language: 'en-US', translation: {} }
+    const initProps = {
+      isServer: typeof window === 'undefined',
+      language: 'en-US',
+      translation: {}
+    }
 
-    /** Read the language cookie from the request headers, or directly. */
-    if (
-      typeof req === 'object' &&
-      req.hasOwnProperty('headers') === true &&
-      typeof req.headers.cookie === 'string'
-    ) {
+    /**
+     * Read the language cookie from the request headers if on the server,
+     * or read the cookie directly if on the client.
+     */
+    if (initProps.isServer === true) {
       const cookie = parseCookie(req.headers.cookie)
       initProps.language = cookie.language
     } else {
@@ -44,12 +47,14 @@ class HomePage extends React.Component {
 
   render () {
     return (
-      <I18nextProvider i18n={this.i18n}>
-        <Layout>
-          <GetStarted />
-          <Features />
-        </Layout>
-      </I18nextProvider>
+      <Provider>
+        <I18nextProvider i18n={this.i18n}>
+          <Layout>
+            <GetStarted />
+            <Features />
+          </Layout>
+        </I18nextProvider>
+      </Provider>
     )
   }
 }

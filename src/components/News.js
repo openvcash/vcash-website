@@ -19,7 +19,7 @@ class News extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='content wrapper'>
         <div className='flex news-columns' style={{ alignItems: 'flex-start' }}>
           <div style={{ minWidth: '200px' }}>
             <div className='flex'>
