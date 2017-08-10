@@ -11,6 +11,7 @@ import Network from '../src/components/Network'
 
 /** Required stores. */
 import { initNetwork } from '../src/stores/network'
+import { initRewardCalculator } from '../src/stores/rewardCalculator'
 
 class NetworkPage extends React.Component {
   static async getInitialProps ({ req }) {
@@ -46,11 +47,16 @@ class NetworkPage extends React.Component {
     super(props)
     this.i18n = i18n(props.translation, props.language)
     this.network = initNetwork(props.isServer)
+    this.rewardCalculator = initRewardCalculator(
+      props.isServer,
+      this.network,
+      this.i18n
+    )
   }
 
   render () {
     return (
-      <Provider network={this.network}>
+      <Provider network={this.network} rewardCalculator={this.rewardCalculator}>
         <I18nextProvider i18n={this.i18n}>
           <Layout>
             <Network />
