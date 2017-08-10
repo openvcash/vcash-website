@@ -15,7 +15,7 @@ class PeerClients extends React.Component {
 
   render () {
     return (
-      <PieChart width={350} height={200}>
+      <PieChart width={310} height={200}>
         <Pie
           isAnimationActive={false}
           data={Object.keys(
@@ -28,7 +28,7 @@ class PeerClients extends React.Component {
 
             return versions
           }, [])}
-          cx={175}
+          cx={155}
           cy={100}
           outerRadius={60}
           fill='#5f0014'
