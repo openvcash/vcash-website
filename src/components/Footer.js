@@ -19,7 +19,7 @@ class Footer extends React.Component {
           <div className='footer-column'>
             <SelectLanguage />
           </div>
-          <div>
+          <div className='footer-icons-wrapper'>
             <div className='flex footer-icons'>
               <a href='https://github.com/openvcash' target='_blank'>
                 <img
