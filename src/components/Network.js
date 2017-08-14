@@ -31,7 +31,7 @@ class Network extends React.Component {
   render () {
     return (
       <div>
-        <div className='network'>
+        <div className='network shadow'>
           <div className='content wrapper'>
             <div className='flex-sb network-info'>
               <div className='flex'>
@@ -84,20 +84,16 @@ class Network extends React.Component {
                 </p>
               </div>
             </div>
-            <div
-              className='flex peer-charts'
-              style={{
-                justifyContent: 'center',
-                margin: '30px 0 0 0',
-                textAlign: 'center'
-              }}
-            >
+            <div className='flex peer-charts'>
               <PeerOSs />
               <PeerClients />
               <PeerTypes />
             </div>
             <div
-              style={{ borderTop: '1px dotted #cbcbcb', margin: '30px 0 0 0' }}
+              style={{
+                borderTop: '1px dotted #cbcbcb',
+                margin: '30px 0 20px 0'
+              }}
             />
             <RewardCalculator />
           </div>

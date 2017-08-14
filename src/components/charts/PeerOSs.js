@@ -15,7 +15,7 @@ class PeerOSs extends React.Component {
 
   render () {
     return (
-      <PieChart width={310} height={200}>
+      <PieChart width={305} height={200}>
         <Pie
           isAnimationActive={false}
           data={Object.keys(this.network.stats.os).reduce((oss, os) => {
@@ -26,8 +26,6 @@ class PeerOSs extends React.Component {
 
             return oss
           }, [])}
-          cx={155}
-          cy={100}
           outerRadius={60}
           fill='#5f0014'
           label={({ name, value }) => name}

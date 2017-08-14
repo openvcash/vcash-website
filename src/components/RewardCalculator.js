@@ -22,8 +22,8 @@ class RewardCalculator extends React.Component {
   render () {
     return (
       <div className='flex-sb reward-calculator'>
-        <div style={{ minWidth: '320px' }}>
-          <div className='flex-sb' style={{ margin: '10px 0 20px 0' }}>
+        <div className='reward-calculator-text'>
+          <div className='flex-sb' style={{ margin: '0 0 20px 0' }}>
             <div className='flex'>
               <i className='material-icons md-18'>extension</i>
               <p>
@@ -43,9 +43,11 @@ class RewardCalculator extends React.Component {
               />
             </div>
           </div>
-
-          <div className='flex' style={{ margin: '0 0 20px 0' }}>
-            <div style={{ margin: '0 36px 0 0' }}>
+          <div
+            className='flex-sb'
+            style={{ alignItems: 'flex-start', margin: '0 0 20px 0' }}
+          >
+            <div>
               <div className='flex'>
                 <i className='material-icons md-16'>stars</i>
                 <p>
@@ -65,7 +67,7 @@ class RewardCalculator extends React.Component {
                 </p>
               </div>
             </div>
-            <div>
+            <div style={{ margin: '0 0 0 5px' }}>
               <p style={{ margin: '1px 0 0 0' }}>
                 <span style={{ fontWeight: '500' }}>
                   {new Intl.NumberFormat(this.language, {
@@ -97,7 +99,7 @@ class RewardCalculator extends React.Component {
           </div>
 
           {this.rc.block > this.network.stats.maxBlockHeight &&
-            <div className='flex'>
+            <div className='flex' style={{ margin: '0 0 20px 0' }}>
               <i className='material-icons md-16'>alarm</i>
               <p>
                 {this.t('network:blockEstimation')}{' '}
@@ -107,8 +109,9 @@ class RewardCalculator extends React.Component {
               </p>
             </div>}
         </div>
-
-        <Rewards data={this.rc.chartData} />
+        <div className='reward-calculator-chart'>
+          <Rewards data={this.rc.chartData} />
+        </div>
       </div>
     )
   }

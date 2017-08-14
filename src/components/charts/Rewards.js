@@ -26,7 +26,7 @@ class Rewards extends React.Component {
 
   render () {
     return (
-      <ResponsiveContainer height={230} width='65%'>
+      <ResponsiveContainer height={230} width='100%'>
         <LineChart
           data={this.rc.chartData}
           margin={{ top: 20, right: 25, bottom: 25, left: 25 }}
