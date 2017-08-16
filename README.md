@@ -1,4 +1,4 @@
-# Vcash website (:hatching_chick: work in progress)
+# Vcash website
 
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Standard style guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
