@@ -32,7 +32,7 @@ class HomePage extends React.Component {
     /** Fetch the translation files for the language found in the cookie. */
     initProps.translation = await fetchTranslation(
       initProps.language,
-      ['common', 'features', 'getStarted'],
+      ['common'],
       'http://localhost:3000/static/locales/'
     )
 
