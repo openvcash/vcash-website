@@ -18,7 +18,7 @@ class GetStarted extends React.Component {
               <Tabs.TabPane tab='Daemon' key='1'>
                 <div className='flex-sb download-tab'>
                   <div>
-                    <img src='/static/images/daemon.png' />
+                    <img src='/static/images/screenshotDaemon.png' />
                     <div className='flex-sb download-bar'>
                       <div className='flex'>
                         <i className='fa fa-2x fa-github' />
@@ -51,7 +51,7 @@ class GetStarted extends React.Component {
               <Tabs.TabPane tab='wxWidgets GUI' key='2'>
                 <div className='flex-sb download-tab'>
                   <div>
-                    <img src='/static/images/wxWidgets.gif' />
+                    <img src='/static/images/screenshotWxWidgets.gif' />
                     <div className='flex-sb download-bar'>
                       <div className='flex'>
                         <i className='fa fa-2x fa-github' />
@@ -84,7 +84,7 @@ class GetStarted extends React.Component {
               <Tabs.TabPane tab='Electron GUI' key='3'>
                 <div className='flex-sb download-tab'>
                   <div>
-                    <img src='/static/images/electron.gif' />
+                    <img src='/static/images/screenshotElectron.gif' />
                     <div className='flex-sb download-bar'>
                       <div className='flex'>
                         <i className='fa fa-2x fa-github' />
