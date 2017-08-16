@@ -105,7 +105,7 @@ class RewardCalculator {
   get time () {
     return (
       new Date().getTime() +
-      1000 * 120 * (this.block - this.network.stats.maxBlockHeight)
+      1000 * 100 * (this.block - this.network.stats.maxBlockHeight)
     )
   }
 
