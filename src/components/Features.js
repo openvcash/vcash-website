@@ -14,13 +14,22 @@ class Features extends React.Component {
         <div className='shadow short-description'>
           <div className='wrapper'>
             <img src='/static/images/logoRed.png' width='48px' />
-            <p style={{ margin: '20px 0 0 0' }}>
+            <p
+              className='raleway'
+              style={{ fontSize: '16px', margin: '20px 0 0 0' }}
+            >
               {this.t('descOne')} {this.t('descTwo')} {this.t('descThree')}
             </p>
-            <p style={{ margin: '20px 0 60px 0' }}>
+            <p
+              className='roboto-condensed'
+              style={{ fontSize: '18px', margin: '50px 0 50px 0' }}
+            >
               {this.t('engineeredFor')}
             </p>
-            <div className='flex-sb' style={{ alignItems: 'flex-start' }}>
+            <div
+              className='flex-sb raleway'
+              style={{ alignItems: 'flex-start' }}
+            >
               <div className='flex short-description-link'>
                 <i className='material-icons md-20'>autorenew</i>
                 <p>
@@ -45,9 +54,8 @@ class Features extends React.Component {
                 <p>
                   {this.t('mineOn')}{' '}
                   <a href='https://pool.vchain.info' target='_blank'>
-                    Vchain
-                  </a>{' '}
-                  {this.t('miningPool')}
+                    Vchain {this.t('miningPool')}
+                  </a>
                 </p>
               </div>
               <div className='flex short-description-link'>
@@ -66,139 +74,127 @@ class Features extends React.Component {
             </div>
           </div>
         </div>
-
         <div className='wrapper features'>
-          <div className='flex features-title'>
-            <i className='material-icons md-20'>layers</i>
-            <p>
-              {this.t('networkLayers')}
-            </p>
-          </div>
-          <ul>
-            <li>
-              {this.t('networkLayersOne')}
-            </li>
-            <li>
-              {this.t('networkLayersTwo')}
-            </li>
-            <li>
-              {this.t('networkLayersThree')}
-            </li>
-            <li>
-              {this.t('networkLayersFour')}
-            </li>
-          </ul>
-          <p>
-            {this.t('referTo')}{' '}
-            <a
-              href='https://github.com/openvcash/papers/blob/master/vanillacoin.pdf'
-              target='_blank'
-            >
-              Vanillacoin
-            </a>{' '}
-            {this.t('and')}{' '}
-            <a
-              href='https://github.com/openvcash/papers/blob/master/scaling_the_blockchain.pdf'
-              target='_blank'
-            >
-              Scaling the blockchain
-            </a>{' '}
-            {this.t('whitePapers')}
-          </p>
+          <div
+            className='flex-sb'
+            style={{ alignItems: 'stretch', flexWrap: 'wrap' }}
+          >
+            <div className='flex features-column shadow'>
+              <div style={{ flex: 1 }}>
+                <div className='features-title'>
+                  <i className='material-icons md-30'>layers</i>
+                  <p className='roboto-condensed'>
+                    {this.t('networkLayers')}
+                  </p>
+                </div>
+                <p className='features-body raleway'>
+                  {this.t('networkLayersOne')} {this.t('networkLayersTwo')}
+                </p>
+              </div>
+              <div className='roboto-condensed'>
+                <p>{this.t('whitePapers')}</p>
+                <a
+                  href='https://github.com/openvcash/papers/blob/master/vanillacoin.pdf'
+                  target='_blank'
+                >
+                  Vanillacoin
+                </a>{' '}
+                {this.t('and')}{' '}
+                <a
+                  href='https://github.com/openvcash/papers/blob/master/scaling_the_blockchain.pdf'
+                  target='_blank'
+                >
+                  Scaling the blockchain
+                </a>
+              </div>
+            </div>
 
-          <div className='separator' />
-          <div className='flex features-title'>
-            <i className='material-icons md-20'>event_seat</i>
-            <p>
-              {this.t('incentive')}
-            </p>
-          </div>
-          <ul>
-            <li>
-              {this.t('incentiveOne')}
-            </li>
-            <li>
-              {this.t('incentiveTwo')}
-            </li>
-          </ul>
-          <p>
-            {this.t('referTo')}{' '}
-            <a
-              href='https://github.com/openvcash/papers/blob/master/incentive.pdf'
-              target='_blank'
-            >
-              Incentive
-            </a>,{' '}
-            <a
-              href='https://github.com/openvcash/papers/blob/master/rewardv2.pdf'
-              target='_blank'
-            >
-              PoW reward v2
-            </a>{' '}
-            {this.t('and')}{' '}
-            <a
-              href='https://github.com/openvcash/papers/blob/master/rewardv3.pdf'
-              target='_blank'
-            >
-              PoW reward v3
-            </a>{' '}
-            {this.t('whitePapers')}
-          </p>
+            <div className='flex features-column shadow'>
+              <div style={{ flex: 1 }}>
+                <div className='features-title'>
+                  <i className='material-icons md-30'>event_seat</i>
+                  <p className='roboto-condensed'>
+                    {this.t('incentive')}
+                  </p>
+                </div>
+                <p className='features-body raleway'>
+                  {this.t('incentiveOne')} {this.t('incentiveTwo')}
+                </p>
+              </div>
+              <div className='roboto-condensed'>
+                <p>{this.t('whitePapers')}</p>
+                <a
+                  href='https://github.com/openvcash/papers/blob/master/incentive.pdf'
+                  target='_blank'
+                >
+                  Incentive
+                </a>,{' '}
+                <a
+                  href='https://github.com/openvcash/papers/blob/master/rewardv2.pdf'
+                  target='_blank'
+                >
+                  PoW reward v2
+                </a>{' '}
+                {this.t('and')}{' '}
+                <a
+                  href='https://github.com/openvcash/papers/blob/master/rewardv3.pdf'
+                  target='_blank'
+                >
+                  PoW reward v3
+                </a>
+              </div>
+            </div>
 
-          <div className='separator' />
-          <div className='flex features-title'>
-            <i className='material-icons md-20'>lock_outline</i>
-            <p>
-              {this.t('zerotime')}
-            </p>
-          </div>
-          <ul>
-            <li>
-              {this.t('zerotimeOne')}
-            </li>
-            <li>
-              {this.t('zerotimeTwo')}
-            </li>
-          </ul>
-          <p>
-            {this.t('referTo')}{' '}
-            <a
-              href='https://github.com/openvcash/papers/blob/master/zerotime.pdf'
-              target='_blank'
-            >
-              ZeroTime
-            </a>{' '}
-            {this.t('whitePaper')}
-          </p>
+            <div className='flex features-column shadow'>
+              <div style={{ flex: 1 }}>
+                <div className='features-title'>
+                  <i className='material-icons md-30'>lock_outline</i>
+                  <p className='roboto-condensed'>
+                    {this.t('zerotime')}
+                  </p>
+                </div>
+                <p className='features-body raleway'>
+                  {this.t('zerotimeOne')} {this.t('zerotimeTwo')}
+                </p>
+              </div>
+              <div className='roboto-condensed'>
+                <p>
+                  {this.t('whitePapers')}
+                </p>
+                <a
+                  href='https://github.com/openvcash/papers/blob/master/zerotime.pdf'
+                  target='_blank'
+                >
+                  ZeroTime
+                </a>
+              </div>
+            </div>
 
-          <div className='separator' />
-          <div className='flex features-title'>
-            <i className='material-icons md-20'>shuffle</i>
-            <p>
-              {this.t('blending')}
-            </p>
+            <div className='flex features-column shadow'>
+              <div style={{ flex: 1 }}>
+                <div className='features-title'>
+                  <i className='material-icons md-30'>shuffle</i>
+                  <p className='roboto-condensed'>
+                    {this.t('blending')}
+                  </p>
+                </div>
+                <p className='features-body raleway'>
+                  {this.t('blendingOne')} {this.t('blendingTwo')}
+                </p>
+              </div>
+              <div className='roboto-condensed'>
+                <p>
+                  {this.t('whitePapers')}
+                </p>
+                <a
+                  href='https://github.com/openvcash/papers/blob/master/chainblender.pdf'
+                  target='_blank'
+                >
+                  ChainBlender
+                </a>
+              </div>
+            </div>
           </div>
-          <ul>
-            <li>
-              {this.t('blendingOne')}
-            </li>
-            <li>
-              {this.t('blendingTwo')}
-            </li>
-            <li>
-              {this.t('blendingThree')}
-            </li>
-          </ul>
-          <p>
-            {this.t('referTo')}{' '}
-            <a
-              href='https://github.com/openvcash/papers/blob/master/chainblender.pdf'
-              target='_blank'
-            >
-              ChainBlender
-            </a>{' '}
-            {this.t('whitePaper')}
-          </p>
         </div>
       </div>
     )

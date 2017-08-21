@@ -14,7 +14,7 @@ class Footer extends React.Component {
 
   render () {
     return (
-      <footer>
+      <footer className='shadow'>
         <div className='flex-sb footer wrapper'>
           <div className='footer-column'>
             <SelectLanguage />
