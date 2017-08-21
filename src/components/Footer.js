@@ -67,7 +67,7 @@ class Footer extends React.Component {
         </div>
         <div
           className='flex'
-          style={{ justifyContent: 'center', margin: '15px 0 10px 0' }}
+          style={{ justifyContent: 'center', margin: '20px 0 10px 0' }}
         >
           <i className='material-icons md-16'>copyright</i>
           <p>

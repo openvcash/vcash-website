@@ -122,7 +122,7 @@ footer { background: url('../images/patternWhiteTexture.png'); flex-shrink: 0; }
 }
 .signatures { justify-content: center; }
 .signatures > div { margin: 5px; }
-.short-description { background: url('../images/patternWhitey.png'); padding: 0 0 15px 0; text-align: center; }
+.short-description { background: url('../images/patternWhitey.png'); padding: 20px 0 20px 0; text-align: center; }
 .short-description-link { flex-direction: column; width: 30%; }
 .short-description-link i { margin: 10px 0 10px 0; }
 .features { padding: 30px 10px 30px 10px; text-align: justify; }
@@ -167,8 +167,8 @@ footer { background: url('../images/patternWhiteTexture.png'); flex-shrink: 0; }
  * For phone only
  */
 @media (max-width: 599px) {
-  .footer-column { min-width: 100%; }
-  .footer-icons-wrapper { margin: 30px auto 20px auto; }
+  .footer-column { margin: 5px 0 5px 0; min-width: 100%; }
+  .footer-icons-wrapper { margin: 20px auto 0 auto; order: 3; }
   .get-started { background: url('../images/getStarted-1200.jpg'); min-height: 600px; }
   .header-link { margin: 0 0 0 10px; }
   .header-link span { display: none; }
