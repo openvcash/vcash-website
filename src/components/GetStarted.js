@@ -20,7 +20,7 @@ class GetStarted extends React.Component {
                 <div className='download-tab'>
                   <img src='/static/images/screenshotDaemon.gif' />
                   <div className='flex-sb download-links'>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-linux' />
                       <div className='download-link'>
                         <p>Linux</p>
@@ -29,7 +29,7 @@ class GetStarted extends React.Component {
                         </a>
                       </div>
                     </div>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-apple' />
                       <div className='download-link'>
                         <p>Mac</p>
@@ -38,7 +38,7 @@ class GetStarted extends React.Component {
                         </a>
                       </div>
                     </div>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-windows' />
                       <div className='download-link'>
                         <p>Windows</p>
@@ -53,7 +53,7 @@ class GetStarted extends React.Component {
                     </div>
                   </div>
                   <div className='flex-sb signatures'>
-                    <div className='download-bar'>
+                    <div className='download-bar shadow'>
                       <a href={releases.daemon.sha256sums} target='_blank'>
                         <div className='flex'>
                           <i className='material-icons md-20'>receipt</i>
@@ -61,7 +61,7 @@ class GetStarted extends React.Component {
                         </div>
                       </a>
                     </div>
-                    <div className='download-bar'>
+                    <div className='download-bar shadow'>
                       <a
                         href='https://pgp.mit.edu/pks/lookup?op=get&search=0x85219EDEBA381B8C'
                         target='_blank'
@@ -81,7 +81,7 @@ class GetStarted extends React.Component {
                 <div className='download-tab'>
                   <img src='/static/images/screenshotWxWidgets.gif' />
                   <div className='flex-sb download-links'>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-linux' />
                       <div className='download-link'>
                         <p>Linux</p>
@@ -90,7 +90,7 @@ class GetStarted extends React.Component {
                         </a>
                       </div>
                     </div>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-apple' />
                       <div className='download-link'>
                         <p>Mac</p>
@@ -99,7 +99,7 @@ class GetStarted extends React.Component {
                         </a>
                       </div>
                     </div>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-windows' />
                       <div className='download-link'>
                         <p>Windows</p>
@@ -110,7 +110,7 @@ class GetStarted extends React.Component {
                     </div>
                   </div>
                   <div className='flex-sb signatures'>
-                    <div className='download-bar'>
+                    <div className='download-bar shadow'>
                       <a href={releases.daemon.sha256sums} target='_blank'>
                         <div className='flex'>
                           <i className='material-icons md-20'>receipt</i>
@@ -118,7 +118,7 @@ class GetStarted extends React.Component {
                         </div>
                       </a>
                     </div>
-                    <div className='download-bar'>
+                    <div className='download-bar shadow'>
                       <a
                         href='https://pgp.mit.edu/pks/lookup?op=get&search=0x85219EDEBA381B8C'
                         target='_blank'
@@ -138,7 +138,7 @@ class GetStarted extends React.Component {
                 <div className='download-tab'>
                   <img src='/static/images/screenshotElectron.gif' />
                   <div className='flex-sb download-links'>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-linux' />
                       <div className='download-link'>
                         <p>Linux</p>
@@ -151,7 +151,7 @@ class GetStarted extends React.Component {
                         </a>
                       </div>
                     </div>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-apple' />
                       <div className='download-link'>
                         <p>Mac</p>
@@ -160,7 +160,7 @@ class GetStarted extends React.Component {
                         </a>
                       </div>
                     </div>
-                    <div className='flex-sb'>
+                    <div className='flex-sb shadow'>
                       <i className='fa fa-2x fa-windows' />
                       <div className='download-link'>
                         <p>Windows</p>
@@ -175,7 +175,7 @@ class GetStarted extends React.Component {
                     </div>
                   </div>
                   <div className='flex-sb signatures'>
-                    <div className='download-bar'>
+                    <div className='download-bar shadow'>
                       <a href={releases.electron.sha256sums} target='_blank'>
                         <div className='flex'>
                           <i className='material-icons md-20'>receipt</i>
@@ -183,7 +183,7 @@ class GetStarted extends React.Component {
                         </div>
                       </a>
                     </div>
-                    <div className='download-bar'>
+                    <div className='download-bar shadow'>
                       <a
                         href='https://pgp.mit.edu/pks/lookup?op=get&search=0x5810890F1F3082A9'
                         target='_blank'
