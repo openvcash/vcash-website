@@ -2,6 +2,7 @@ import React from 'react'
 import { translate } from 'react-i18next'
 import { Select } from 'antd'
 import { set as setCookie } from 'js-cookie'
+import moment from 'moment'
 
 @translate(['common'])
 class SelectLanguage extends React.Component {
@@ -9,6 +10,9 @@ class SelectLanguage extends React.Component {
     super(props)
     this.t = props.t
     this.language = props.i18n.language
+
+    /** Set time and date format to the selected language. */
+    moment.locale(this.language)
 
     /** Available languages. */
     this.languages = [
