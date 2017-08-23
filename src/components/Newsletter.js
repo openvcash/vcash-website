@@ -2,8 +2,6 @@ import React from 'react'
 import { translate } from 'react-i18next'
 import { Button, Input } from 'antd'
 
-/** TODO: Add mailchimp support on server & client. */
-
 @translate(['common'])
 class Newsletter extends React.Component {
   constructor (props) {
@@ -13,18 +11,23 @@ class Newsletter extends React.Component {
 
   render () {
     return (
-      <div>
+      <form action='/subscribe' method='post'>
         <div className='flex-sb'>
           <Input
+            name='email'
             placeholder={this.t('newsletter')}
             size='small'
             style={{ flex: 1 }}
           />
-          <Button size='small' style={{ margin: '0 0 0 5px' }}>
+          <Button
+            htmlType='submit'
+            size='small'
+            style={{ margin: '0 0 0 5px' }}
+          >
             {this.t('subscribe')}
           </Button>
         </div>
-      </div>
+      </form>
     )
   }
 }

@@ -6,8 +6,9 @@ const { join } = require('path')
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 
-/** Required stores. */
+/** Required server-only stores and utilities. */
 const serveNews = require('./src/stores/serveNews')
+const subscribe = require('./src/utilities/newsletter')
 
 /** Use MobX static rendering. */
 mobxReact.useStaticRendering(true)
@@ -39,6 +40,11 @@ app
     /** Serve individual news markdown files on /news/:id */
     server.get('/news/:id', (req, res) => {
       app.render(req, res, '/news', { id: req.params.id })
+    })
+
+    /** Process newsletter subscriptions. */
+    server.post('/subscribe', (req, res) => {
+      return subscribe(req, res)
     })
 
     /** Pass everything else to app request handler. */
