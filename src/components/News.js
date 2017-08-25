@@ -32,7 +32,7 @@ class News extends React.Component {
           <div className='content wrapper'>
             <div className='flex-sb news-search'>
               <div
-                className='flex'
+                className='flex shadow'
                 style={{
                   background: '#b60127',
                   color: '#FFFFFF',
@@ -68,9 +68,7 @@ class News extends React.Component {
           >
             <div style={{ flex: 1 }}>
               {this.news.filtered.posts.map(
-                post =>
-                  post.id !== id &&
-                  <NewsPost post={post} key={post.id} />
+                post => post.id !== id && <NewsPost post={post} key={post.id} />
               )}
 
               {this.news.filtered.count === 0 &&
