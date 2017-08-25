@@ -1,5 +1,4 @@
 import { action, computed, observable } from 'mobx'
-import { shorten } from '../utilities/common'
 import fetch from 'isomorphic-unfetch'
 
 class News {
@@ -79,28 +78,6 @@ class News {
           : (this.page - 1) * this.perPage + this.perPage
       )
     }
-  }
-
-  /**
-   * Get the ids and titles of the 5 latest news posts.
-   * @function latestFive
-   * @return {array} Latest five news posts.
-   */
-  @computed
-  get latestFive () {
-    let posts = []
-
-    for (let i = 0; i < this.posts.length; i++) {
-      if (posts.length === 5) break
-
-      posts.push({
-        id: this.posts[i].id,
-        timestamp: this.posts[i].timestamp,
-        title: shorten(this.posts[i].title, 25)
-      })
-    }
-
-    return posts
   }
 
   /**

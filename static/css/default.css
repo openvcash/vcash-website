@@ -136,21 +136,21 @@ footer { background: url('../images/patternWhitey.png'); flex-shrink: 0; }
  */
 .news-post {
   background: url('../images/patternWhitey.png');
-  padding: 0 5px 0 5px;
   border-bottom: 1px solid #aeaebd;
   flex-direction: row;
+  padding: 0 5px 0 5px;
 }
 .news-post ol, ul { list-style: disc; margin: 5px 0 5px 0; }
 .news-post ol, ul > li { margin: 0 0 0 18px; }
 .news-post-body {
-  margin: 10px 0 20px 0;
-  padding: 0 5px 0 5px;
+  padding: 10px 5px 0 5px;
   text-align: justify;
 }
 .news-columns { flex-direction: row; }
 .news-post h3 { margin: 0 10px 0 0; }
-.news-post-pinned { background: url('../images/patternWhiteTexture.png') }
+.news-post-pinned { background: url('../images/patternWhitey.png'); padding: 10px; }
 .news-post-pinned .news-post { background: none; }
+.news-post-featured { background: url('../images/patternDarkDenim3.png'); padding-top: 30px; }
 
 /**
  * Network
@@ -191,6 +191,7 @@ footer { background: url('../images/patternWhitey.png'); flex-shrink: 0; }
   .header-link span { display: none; }
   .news-post { flex-direction: column; }
   .news-columns { flex-direction: column; }
+  .news-search { flex-direction: column; }
   .peer-charts { flex-direction: column; }
   .reward-calculator { flex-direction: column; }
   .reward-calculator-text { min-width: inherit; }

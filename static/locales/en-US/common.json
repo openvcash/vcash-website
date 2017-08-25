@@ -18,6 +18,7 @@
   "incentiveTwo": "This is done by spreading part of the coinbase reward to a subset of vote winners after solving of each Proof-of-Work block.",
   "languageNotFound": "Language not found",
   "latestNews": "Latest news",
+  "linkedNews": "Linked news post",
   "mineOn": "Mineable on",
   "miningPool": "mining pool",
   "network": "Network",

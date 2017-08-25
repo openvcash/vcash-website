@@ -57,7 +57,7 @@ class ServeNews {
       if (this.changedFiles.length === 0) return
 
       /** Refresh contents of changed files. */
-      this.refresh(this.changedFiles)
+      this.refresh(true)
     }, 5 * 1000)
 
     /** Refresh files on initialization. */
@@ -66,13 +66,14 @@ class ServeNews {
 
   /**
    * Refresh contents of markdown files.
+   * @param {boolean} onlyChanged - Refresh only files with updated contents.
    * @function refresh
    */
-  async refresh (checkedFiles = null) {
+  async refresh (onlyChanged = false) {
     let newsFiles = await readdir(this.newsDir)
 
-    if (checkedFiles !== null) {
-      newsFiles = checkedFiles.reduce((files, filename) => {
+    if (onlyChanged === true) {
+      newsFiles = this.changedFiles.reduce((files, filename) => {
         /** Remove deleted files from the contents map. */
         if (newsFiles.includes(filename) === true) {
           files.push(filename)

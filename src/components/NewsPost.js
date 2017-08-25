@@ -14,23 +14,20 @@ class NewsPost extends React.Component {
   render () {
     const { author, body, id, timestamp, title } = this.props.post
     return (
-      <div className={this.props.pin === true && 'news-post-pinned'}>
+      <div
+        className={this.props.pin === true ? 'news-post-pinned' : ''}
+        style={{ margin: '0 0 20px 0' }}
+      >
         <div className='flex-sb news-post'>
           <div className='flex'>
             <h3>
               {title}
             </h3>
-            {(this.props.pin === true &&
-              <Link href='/news'>
-                <a className='flex'>
-                  <i className='material-icons md-16'>highlight_off</i>
-                </a>
-              </Link>) ||
-              <Link as={'/news/' + id} href={'/news?id=' + id}>
-                <a className='flex'>
-                  <i className='material-icons md-20'>link</i>
-                </a>
-              </Link>}
+            <Link as={'/news/' + id} href={'/news?id=' + id}>
+              <a className='flex'>
+                <i className='material-icons md-20'>link</i>
+              </a>
+            </Link>
           </div>
           <div className='flex'>
             <p>
