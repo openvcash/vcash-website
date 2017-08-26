@@ -1,3 +1,0 @@
-### Routing ###
-
-Best effort broadcast.
