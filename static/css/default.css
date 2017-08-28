@@ -299,3 +299,4 @@ a:hover { color: #5f0014; }
 .ant-tabs-tab-prev:hover, .ant-tabs-tab-next:hover { color: rgba(255, 255, 255, 0.75); }
 .ant-tabs-tab-prev,
 .ant-tabs-tab-next { color: rgba(255, 255, 255, 0.75); }
+.ant-tabs-nav-container { padding: 0 32px 0 32px; }

@@ -2,6 +2,18 @@ import React from 'react'
 import { translate } from 'react-i18next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Router from 'next/router'
+import NProgress from 'nprogress'
+
+/** Disable spinner in the top-right corner below progress bar. */
+NProgress.configure({ showSpinner: false })
+
+/** Start the progress bar on route change. */
+Router.onRouteChangeStart = () => NProgress.start()
+
+/** Finish the progress bar on route completion or error. */
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
 @translate(['common'])
 class Header extends React.Component {
@@ -23,6 +35,7 @@ class Header extends React.Component {
             href='//cdnjs.cloudflare.com/ajax/libs/antd/2.12.3/antd.min.css'
           />
           <link rel='stylesheet' href='/static/css/default.css' />
+          <link rel='stylesheet' href='/static/css/nprogress.css' />
         </Head>
         <div className='navigation shadow'>
           <div className='flex-sb wrapper'>
