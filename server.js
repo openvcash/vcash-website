@@ -1,17 +1,18 @@
 const express = require('express')
 const favicon = require('serve-favicon')
 const next = require('next')
-const mobxReact = require('mobx-react')
+const { useStaticRendering } = require('mobx-react')
 const { join } = require('path')
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 
 /** Required server-only stores and utilities. */
+const serveDocs = require('./src/stores/serveDocs')
 const serveNews = require('./src/stores/serveNews')
 const subscribe = require('./src/utilities/newsletter')
 
 /** Use MobX static rendering. */
-mobxReact.useStaticRendering(true)
+useStaticRendering(true)
 
 app
   .prepare()
@@ -20,6 +21,12 @@ app
 
     /** Set favicon. */
     server.use(favicon(join(__dirname, 'static', 'images', 'favicon.ico')))
+
+    /** Serve docs markdown files in JSON on /api/docs. */
+    server.get('/api/docs', (req, res) => {
+      res.writeHead(200, { 'Content-Type': 'application/json' })
+      return res.end(serveDocs.json)
+    })
 
     /** Serve news markdown files in JSON on /api/news. */
     server.get('/api/news', (req, res) => {
@@ -32,12 +39,17 @@ app
       return res.sendFile(join(__dirname, 'content', 'peers.json'))
     })
 
+    /** Pass along the id to /docs page. */
+    server.get('/docs/:id', (req, res) => {
+      app.render(req, res, '/docs', { id: req.params.id })
+    })
+
     /** Serve hard-coded bootstrap contacts on /n. */
     server.get('/n', (req, res) => {
       return res.sendFile(join(__dirname, 'content', 'n.json'))
     })
 
-    /** Serve individual news markdown files on /news/:id */
+    /** Pass along the id to /news page. */
     server.get('/news/:id', (req, res) => {
       app.render(req, res, '/news', { id: req.params.id })
     })
