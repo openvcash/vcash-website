@@ -63,7 +63,7 @@ class News extends React.Component {
         </div>
         <div className='wrapper'>
           <div
-            className='flex news-columns'
+            className='flex'
             style={{ alignItems: 'flex-start', margin: '10px 0 0 0' }}
           >
             <div style={{ flex: 1 }}>
