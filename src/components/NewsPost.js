@@ -1,7 +1,8 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import Link from 'next/link'
-import Markdown from 'react-markdown'
+import Remarkable from 'remarkable'
+import HighlightJS from 'highlight.js'
 import moment from 'moment'
 
 @translate(['common'])
@@ -9,6 +10,24 @@ class NewsPost extends React.Component {
   constructor (props) {
     super(props)
     this.t = props.t
+
+    /** Enable code highlighting in Remarkable. */
+    this.md = new Remarkable({
+      html: true,
+      highlight: function (str, lang) {
+        if (lang && HighlightJS.getLanguage(lang)) {
+          try {
+            return HighlightJS.highlight(lang, str).value
+          } catch (err) {}
+        }
+
+        try {
+          return HighlightJS.highlightAuto(str).value
+        } catch (err) {}
+
+        return '' // use external default escaping
+      }
+    })
   }
 
   render () {
@@ -40,7 +59,7 @@ class NewsPost extends React.Component {
           </div>
         </div>
         <div className='news-post-body'>
-          <Markdown source={body} />
+          <div dangerouslySetInnerHTML={{ __html: this.md.render(body) }} />
         </div>
       </div>
     )
