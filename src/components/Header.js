@@ -32,7 +32,15 @@ class Header extends React.Component {
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           <link
             rel='stylesheet'
-            href='//cdnjs.cloudflare.com/ajax/libs/antd/2.12.3/antd.min.css'
+            href='https://cdnjs.cloudflare.com/ajax/libs/antd/2.12.3/antd.min.css'
+          />
+          <link
+            rel='stylesheet'
+            href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css'
+          />
+          <link
+            rel='stylesheet'
+            href='https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.8.0/github-markdown.min.css'
           />
           <link rel='stylesheet' href='/static/css/default.css' />
           <link rel='stylesheet' href='/static/css/nprogress.css' />
@@ -66,17 +74,14 @@ class Header extends React.Component {
                   </span>
                 </a>
               </Link>
-              <a
-                className='flex header-link'
-                href='https://docs.vcash.info'
-                target='_blank'
-                title={this.t('docs')}
-              >
-                <i className='material-icons md-20'>dvr</i>
-                <span>
-                  {this.t('docs')}
-                </span>
-              </a>
+              <Link prefetch href='/docs'>
+                <a className='flex header-link' title={this.t('docs')}>
+                  <i className='material-icons md-20'>dvr</i>
+                  <span>
+                    {this.t('docs')}
+                  </span>
+                </a>
+              </Link>
               <a
                 className='flex header-link'
                 href='https://blog.vcash.info'

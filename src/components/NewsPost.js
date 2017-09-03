@@ -13,7 +13,6 @@ class NewsPost extends React.Component {
 
     /** Enable code highlighting in Remarkable. */
     this.md = new Remarkable({
-      html: true,
       highlight: function (str, lang) {
         if (lang && HighlightJS.getLanguage(lang)) {
           try {
@@ -58,7 +57,7 @@ class NewsPost extends React.Component {
             </p>
           </div>
         </div>
-        <div className='news-post-body'>
+        <div className='news-post-body markdown-body'>
           <div dangerouslySetInnerHTML={{ __html: this.md.render(body) }} />
         </div>
       </div>

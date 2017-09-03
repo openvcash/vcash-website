@@ -290,6 +290,30 @@ footer {
   min-width: 350px;
 }
 
+/**
+ * Docs
+ */
+.docs {
+  background: url('../images/patternPinstripedSuit.png')
+}
+
+.markdown-body {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.markdown-body a {
+  color: #b60127;
+}
+
+.markdown-body h1 {
+  font-size: 1.3em;
+}
+
+.markdown-body th {
+  font-size: 0.9em;
+}
+
 
 /**
  * Subscribed
