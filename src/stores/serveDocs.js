@@ -63,7 +63,7 @@ class ServeDocs {
 
         /** Set file's parsed markdown and id (object's nested path). */
         set(this.docsTree, pathSplit, {
-          id: pathSplit.join('-'),
+          key: pathSplit.join('_'),
           body: frontMatter(markdown).body
         })
       }
