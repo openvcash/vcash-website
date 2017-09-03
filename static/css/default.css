@@ -304,8 +304,9 @@ footer {
 }
 
 .markdown-body {
-	box-sizing: border-box;
-	width: 100%;
+  box-sizing: border-box;
+  max-width: 900px;
+  min-width: 900px;
 }
 
 .markdown-body a {
