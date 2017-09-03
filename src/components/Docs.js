@@ -106,21 +106,20 @@ class Docs extends React.Component {
               margin: '10px 0 10px 0'
             }}
           >
-            <div
-              className='shadow'
-              style={{ margin: '0 30px 0 0' }}
-            >
-              <Menu
-                style={{ width: 240 }}
-                defaultSelectedKeys={['Configuration_config.dat']}
-                defaultOpenKeys={['Block', 'Configuration', 'Technologies']}
-                mode='inline'
-                onClick={(item, key, keyPath) =>
-                  this.onMenuClick(item, key, keyPath)}
-                theme='dark'
-              >
-                {this.buildMenu(this.docs.contents)}
-              </Menu>
+            <div>
+              <div className='shadow docs-menu'>
+                <Menu
+                  style={{ width: 240 }}
+                  defaultSelectedKeys={[this.docs.viewingDoc]}
+                  defaultOpenKeys={['Block', 'Configuration', 'Technologies']}
+                  mode='inline'
+                  onClick={(item, key, keyPath) =>
+                    this.onMenuClick(item, key, keyPath)}
+                  theme='dark'
+                >
+                  {this.buildMenu(this.docs.contents)}
+                </Menu>
+              </div>
             </div>
             <div
               className='markdown-body'
