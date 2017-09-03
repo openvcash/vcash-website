@@ -1,8 +1,8 @@
-### getbalance ###
+# GetBalance
 
 Returns the wallet balance.
 
-### Example ###
+# Example
 
 ```
 getbalance

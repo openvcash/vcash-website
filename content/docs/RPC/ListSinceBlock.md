@@ -1,8 +1,8 @@
-### listsinceblock ###
+# ListSinceBlock
 
 Lists all transactions since the block with the hash.
 
-### Example ###
+# Example
 
 ```
 listsinceblock 0000000000009fe250400eed6cb80ecf09cd90642b0a12019d097c60ac462dcb

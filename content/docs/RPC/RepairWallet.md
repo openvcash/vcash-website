@@ -1,8 +1,8 @@
-### repairwallet ###
+# RepairWallet
 
 Repairs a wallet if an inconsistency is found.
 
-### Example ###
+# Example
 
 ```
 repairwallet

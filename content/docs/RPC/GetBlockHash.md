@@ -1,8 +1,8 @@
-### getblockhash ###
+# GetBlockHash
 
 Gets hash of a block given it's index in the main chain.
 
-### Example ###
+# Example
 
 ```
 getblockhash 1

@@ -1,8 +1,8 @@
-### walletlock ###
+# WalletLock
 
 Locks the wallet.
 
-### Example ###
+# Example
 
 ```
 walletlock

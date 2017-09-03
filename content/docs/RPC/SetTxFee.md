@@ -1,8 +1,8 @@
-### settxfee ###
+# SetTxFee
 
 Set the transaction fee to pay.
 
-### Example ###
+# Example
 
 ```
 settxfee 0.0005

@@ -1,8 +1,8 @@
-### getblocktemplate ###
+# GetBlockTemplate
 
 Gets a block template.
 
-### Example ###
+# Example
 
 ```
 {

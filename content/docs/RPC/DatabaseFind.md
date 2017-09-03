@@ -1,8 +1,8 @@
-### databasefind ###
+# DatabaseFind
 
 Performs a lookup on a query in the decentralized database.
 
-### Example ###
+# Example
 
 ```
 databasefind 1=1&2=2&3=3

@@ -1,8 +1,8 @@
-### dumpprivkey ###
+# DumpPrivKey
 
 Dumps the private key for a specific address.
 
-### Example ###
+# Example
 
 ```
 dumpprivkey VbKoLns3UFSqdfQFhZecBvoNV8Afs3EGdx

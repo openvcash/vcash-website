@@ -1,8 +1,8 @@
-### getnewaddress ###
+# GetNewAddress
 
 Gets a new address.
 
-### Example ###
+# Example
 
 ```
 getnewaddress

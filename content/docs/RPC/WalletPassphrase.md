@@ -1,8 +1,8 @@
-### walletpassphrase ###
+# WalletPassphrase
 
 Unlocks the wallet.
 
-### Example ###
+# Example
 
 ```
 walletpassphrase mypassphrase

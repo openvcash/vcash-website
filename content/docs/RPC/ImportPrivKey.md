@@ -1,8 +1,8 @@
-### importprivkey ###
+# ImportPrivKey
 
 Imports a private key into the main wallet.
 
-### Example ###
+# Example
 
 ```
 importprivkey 1gQaWBbvxbTfJMuYr74Ed5VwdLfGEq7uErn2uNCuhDxhGWkmTYP

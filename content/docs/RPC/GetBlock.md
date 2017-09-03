@@ -1,8 +1,8 @@
-### getblock ###
+# GetBlock
 
 Gets information regarding a block given it's hash.
 
-### Example ###
+# Example
 
 ```
 getblock 0000000000009fe250400eed6cb80ecf09cd90642b0a12019d097c60ac462dcb

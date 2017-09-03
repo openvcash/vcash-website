@@ -1,8 +1,8 @@
-### getdifficulty ###
+# GetDifficulty
 
 Gets the network difficulty.
 
-### Example ###
+# Example
 
 ```
 getdifficulty

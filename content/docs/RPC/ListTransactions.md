@@ -1,8 +1,8 @@
-### listtransactions ###
+# ListTransactions
 
 List the most recent transactions.
 
-### Example ###
+# Example
 
 ```
 listtransactions

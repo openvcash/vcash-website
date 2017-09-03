@@ -1,8 +1,8 @@
-### listreceivedbyaddress ###
+# ListReceivedByAddress
 
 Lists the amounts received by addresses with the minimum confirmations.
 
-### Example ###
+# Example
 
 ```
 listreceivedbyaddress 3

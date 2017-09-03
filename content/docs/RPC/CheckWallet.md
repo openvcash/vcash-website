@@ -1,8 +1,8 @@
-### checkwallet ###
+# CheckWallet
 
 Checks the wallet for inconsistencies.
 
-### Example ###
+# Example
 
 ```
 {

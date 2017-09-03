@@ -1,8 +1,8 @@
-### listreceivedbyaccount ###
+# ListReceivedByAccount
 
 Lists the amounts received by accounts with the minimum confirmations.
 
-### Example ###
+# Example
 
 ```
 listreceivedbyaccount 3

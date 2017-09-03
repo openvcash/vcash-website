@@ -1,8 +1,8 @@
-### getblockcount ###
+# GetBlockCount
 
 Gets the number of blocks in the main chain.
 
-### Example ###
+# Example
 
 ```
 getblockcount

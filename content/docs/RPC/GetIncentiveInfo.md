@@ -1,8 +1,8 @@
-### getincentiveinfo ###
+# GetIncentiveInfo
 
 Returns information about the current incentive state.
 
-### Example ###
+# Example
 
 ```
 getincentiveinfo

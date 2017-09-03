@@ -1,8 +1,8 @@
-### gettransaction ###
+# GetTransaction
 
 Gets information regarding a transaction.
 
-### Example ###
+# Example
 
 ```
 gettransaction 3d7b638c640822970148555a55f689d7bf2b5164a041e672e55956943e343d76

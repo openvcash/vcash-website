@@ -1,8 +1,8 @@
-### getnetworkhashps ###
+# GetNetworkHashPS
 
 Gets the network hashes per second.
 
-### Example ###
+# Example
 
 ```
 getnetworkhashps

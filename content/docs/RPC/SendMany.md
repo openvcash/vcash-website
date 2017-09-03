@@ -1,8 +1,8 @@
-### sendmany ###
+# SendMany
 
 Sends an amount of coins to a set of addresses.
 
-### Example ###
+# Example
 
 ```
 sendmany "", {"VnLoLns3UFSqd3QGhZecBvoNV8Afs3EgdT":1.0,

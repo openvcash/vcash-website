@@ -1,8 +1,8 @@
-### getinfo ###
+# GetInfo
 
 Returns general information about the node.
 
-### Example ###
+# Example
 
 ```
 getinfo

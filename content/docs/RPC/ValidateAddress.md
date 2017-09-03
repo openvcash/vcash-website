@@ -1,8 +1,8 @@
-### validateaddress ###
+# ValidateAddress
 
 Validates an address.
 
-### Example ###
+# Example
 
 ```
 validateaddress VnLlLns3UFSqd5QFhZecBvoNV9Afs3EgdT

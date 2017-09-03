@@ -1,8 +1,8 @@
-### getmininginfo ###
+# GetMiningInfo
 
 Gets mining related information.
 
-### Example ###
+# Example
 
 ```
 getmininginfo

@@ -1,8 +1,8 @@
-### submitblock ###
+# SubmitBlock
 
 Submits a block from a miner.
 
-### Example ###
+# Example
 
 ```
 submitblock "020000003c48a294584f90e58325c60ca82896d071826b45680a661cec4d424d00000000

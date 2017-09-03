@@ -1,8 +1,8 @@
-### getrawtransaction ###
+# GetRawTransaction
 
 Gets a transaction in raw form.
 
-### Example ###
+# Example
 
 ```
 getrawtransaction 6918faad815b9c06a16be77a0859a365ee7c7db96f429ebca5338aa1

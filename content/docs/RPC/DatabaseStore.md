@@ -1,8 +1,8 @@
-### databasestore ###
+# DatabaseStore
 
 Stores a query in the decentralized database for the given lifetime.
 
-### Example ###
+# Example
 
 ```
 databasestore 1=1&2=2&3=3&_l=300

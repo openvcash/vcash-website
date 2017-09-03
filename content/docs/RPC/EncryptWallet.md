@@ -1,8 +1,8 @@
-### encryptwallet ###
+# EncryptWallet
 
 Encrypts a the main wallet.
 
-### Example ###
+# Example
 
 ```
 encryptwallet passphrase

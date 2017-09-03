@@ -1,8 +1,8 @@
-### getpeerinfo ###
+# GetPeerInfo
 
 Returns information regarding the neighboring peers.
 
-### Example ###
+# Example
 
 ```
 getpeerinfo

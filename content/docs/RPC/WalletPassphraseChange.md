@@ -1,8 +1,8 @@
-### walletpassphrasechange ###
+# WalletPassphraseChange
 
 Changes the password on the main wallet file.
 
-### Example ###
+# Example
 
 ```
 walletpassphrasechange oldpassword newpassword

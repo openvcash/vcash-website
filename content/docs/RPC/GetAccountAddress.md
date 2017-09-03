@@ -1,8 +1,8 @@
-### getaccountaddress ###
+# GetAccountAddress
 
 Gets the address for an account name.
 
-### Example ###
+# Example
 
 ```
 getaccountaddress mining
