@@ -20,16 +20,23 @@ class Docs {
   }
 
   /**
+   * Get viewing document id (path).
+   * @function id
+   * @return {string} Document path.
+   */
+  @computed
+  get id () {
+    return this.viewingDoc === '' ? 'Configuration_config.dat' : this.viewingDoc
+  }
+
+  /**
    * Get the viewing document.
    * @function viewing
    * @return {object} Viewing document.
    */
   @computed
   get viewing () {
-    const id =
-      this.viewingDoc === ''
-        ? 'Configuration_config.dat'.split('_')
-        : this.viewingDoc.split('_')
+    const id = this.id.split('_')
 
     return has(this.contents, id) === true
       ? get(this.contents, id)

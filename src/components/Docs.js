@@ -110,8 +110,13 @@ class Docs extends React.Component {
               <div className='shadow docs-menu'>
                 <Menu
                   style={{ width: 240 }}
-                  defaultSelectedKeys={[this.docs.viewingDoc]}
-                  defaultOpenKeys={['Block', 'Configuration', 'Technologies']}
+                  defaultSelectedKeys={[this.docs.id]}
+                  defaultOpenKeys={[
+                    'Block',
+                    'Configuration',
+                    'Technologies',
+                    ...this.docs.id.split('_')
+                  ]}
                   mode='inline'
                   onClick={(item, key, keyPath) =>
                     this.onMenuClick(item, key, keyPath)}
