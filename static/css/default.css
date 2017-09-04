@@ -305,6 +305,7 @@ footer {
 
 .markdown-body {
   box-sizing: border-box;
+  font-size: inherit;
   max-width: 900px;
   min-width: 900px;
 }
@@ -317,8 +318,16 @@ footer {
   font-size: 1.3em;
 }
 
+.markdown-body h2 {
+  font-size: 1em;
+}
+
 .markdown-body th {
   font-size: 0.9em;
+}
+
+.markdown-body table {
+  display: table;
 }
 
 

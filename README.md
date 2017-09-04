@@ -5,7 +5,7 @@
 
 :honeybee: Vcash community website built using
 [Next.js](https://github.com/zeit/next.js/), with content from the original
-website and whitepapers.
+website, docs and whitepapers.
 
 ## Table of Contents
 - [Install from source](#install-from-source)
