@@ -2,7 +2,6 @@
 The `verifymessage` RPC verifies a signed message.
 
 ## Parameters
-
 Name    | Type            | Presence | Description
 ------- | --------------- | -------- | -----------------------------------------
 Address	| string (base58) | Required | The P2PKH address whose private key made the signature.
@@ -10,13 +9,11 @@ Signature | string (base64) | Required | The signature created by the signer.
 Message | string | Required | The message that was signed.
 
 ## Result
-
 Name    | Type            | Presence | Description
 ------- | --------------- | -------- | -----------------------------------------
 result | boolean | Required | `true` if the message was signed by the address's private key or `false` if not.
 
 ## Example using Bash RPC script and Electron GUI console
-
 Verify that the message `Vcash` was signed by the private key of address  `VdTiJEE49rJBU4YTmSHC1UseEqwD5G6rVb`.
 
 ```
