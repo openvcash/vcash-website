@@ -12,7 +12,7 @@ Message | string          | Required | The message to sign.
 ## Result
 Name    | Type            | Presence | Description
 ------- | --------------- | -------- | -----------------------------------------
-result  | string (base64) | Required | The message signature, encoded in base64. The same message encoded multiple times will result in different signatures.
+result  | string (base64) | Required | The message signature. Multiple signings will result in different signatures.
 
 ## Example using Bash RPC script and Electron GUI console
 Sign the message `Vcash` with the private key of address `VdTiJEE49rJBU4YTmSHC1UseEqwD5G6rVb` belonging to this wallet.
