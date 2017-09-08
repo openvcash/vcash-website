@@ -62,7 +62,7 @@ class Features extends React.Component {
                 <i className='material-icons md-20'>extension</i>
                 <p>
                   {this.t('explorersBy')}{' '}
-                  <a href='https://explorer.vchain.info' target='_blank'>
+                  <a href='https://explorer.vcash.info' target='_blank'>
                     xCore
                   </a>{' '}
                   {this.t('and')}{' '}
