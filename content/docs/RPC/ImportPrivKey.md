@@ -3,7 +3,7 @@ The `importprivkey` RPC imports a private key in wallet-import-format (WIF) to y
 
 _An unlocked or unencrypted wallet is required._
 
-## Parameter
+## Parameters
 Name    | Type            | Presence | Description
 ------- | --------------- | -------- | -----------------------------------------
 Private key | string (base58) | Required | The private key to import into the wallet.
