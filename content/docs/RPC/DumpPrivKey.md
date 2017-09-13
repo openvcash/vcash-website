@@ -9,9 +9,9 @@ Name            | Type            | Presence | Description
 Address (P2PKH) | string (base58) | Required | The address to return the private key of.
 
 ## Result
-Name    | Type            | Presence | Description
-------- | --------------- | -------- | -----------------------------------------
-result  | string (base58) | Required | The address's private key.
+Name   | Type            | Presence | Description
+------ | --------------- | -------- | ------------------------------------------
+result | string (base58) | Required | The address's private key.
 
 ## Example using Bash RPC script and Electron GUI console
 Dump the private key of address `VtTKZCve3agWR4qvik1WjEsqvbr4jyjsrs`.

@@ -2,9 +2,9 @@
 The `getunconfirmedbalance` RPC returns the wallet's unconfirmed balance.
 
 ## Result
-Name    | Type            | Presence | Description
-------- | --------------- | -------- | -----------------------------------------
-result  | number          | Required | Balance of the wallet's unconfirmed transactions.
+Name   | Type   | Presence | Description
+------ | ------ | -------- | ---------------------------------------------------
+result | number | Required | Balance of the wallet's unconfirmed transactions.
 
 ## Example using Bash RPC script and Electron GUI console
 Get unconfirmed balance of the wallet.
