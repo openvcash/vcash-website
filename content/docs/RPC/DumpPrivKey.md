@@ -4,8 +4,8 @@ The `dumpprivkey` RPC returns the private key of the specified address in wallet
 _An unlocked or unencrypted wallet is required._
 
 ## Parameter
-Name    | Type            | Presence | Description
-------- | --------------- | -------- | -----------------------------------------
+Name            | Type            | Presence | Description
+--------------- | --------------- | -------- | ---------------------------------
 Address (P2PKH) | string (base58) | Required | The address to return the private key of.
 
 ## Result

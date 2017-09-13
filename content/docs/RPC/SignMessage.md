@@ -22,7 +22,7 @@ Sign the message `Vcash` with the private key of address `VdTiJEE49rJBU4YTmSHC1U
 signmessage ["VdTiJEE49rJBU4YTmSHC1UseEqwD5G6rVb", "Vcash"]
 ```
 
-The result is signature of the message.
+The result is the signature of the message.
 
 ```
 {

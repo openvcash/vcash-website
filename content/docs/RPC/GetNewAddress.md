@@ -1,5 +1,5 @@
 # GetNewAddress
-The `getnewaddress` RPC returns a new Vcash address for receiving payments. Specifying an account will ensure that received payments are credited to it.
+The `getnewaddress` RPC returns a new Vcash address for receiving payments. Specifying an account will assign the new address to it.
 
 ## Parameter
 Name    | Type            | Presence | Description
