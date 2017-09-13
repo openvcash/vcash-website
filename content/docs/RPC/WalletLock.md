@@ -6,7 +6,7 @@ _An unlocked wallet is required._
 ## Result
 Name   | Type | Presence | Description
 ------ | ---- | -------- | -----------------------------------------------------
-result | null | Required | The wallet was successfully locked
+result | null | Required | The wallet was successfully locked.
 
 ## Example using Bash RPC script and Electron GUI console
 Lock the wallet that's unlocked at the moment.
