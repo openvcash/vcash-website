@@ -25,10 +25,15 @@ class NewsPage extends React.Component {
      * or read the cookie directly if on the client.
      */
     if (initProps.isServer === true) {
-      const cookie = parseCookie(req.headers.cookie)
-      initProps.language = cookie.language
+      initProps.language =
+        typeof req.headers.cookie === 'undefined'
+          ? 'en-US'
+          : parseCookie(req.headers.cookie).language
     } else {
-      initProps.language = getCookie('language')
+      initProps.language =
+        typeof getCookie('language') === 'undefined'
+          ? 'en-US'
+          : getCookie('language')
     }
 
     /** Fetch the translation files for the language found in the cookie. */
