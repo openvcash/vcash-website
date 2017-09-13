@@ -27,7 +27,7 @@ The result is `null` if the wallet's passphrase was successfully updated.
 ```
 {
   "jsonrpc": "2.0",
-  "result": true,
+  "result": null,
   "id": "8752"
 }
 ```

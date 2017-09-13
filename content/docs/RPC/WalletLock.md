@@ -21,7 +21,7 @@ The result is `null` if the wallet was successfully locked.
 ```
 {
   "jsonrpc": "2.0",
-  "result": true,
+  "result": null,
   "id": "6371"
 }
 ```
