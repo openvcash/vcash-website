@@ -1,12 +1,30 @@
 # GetAccount
+The `getaccount` RPC returns the account name assigned to the specified address. Default is an empty string `""`.
 
-Gets the account name for an address.
+## Parameter
+Name    | Type            | Presence | Description
+------- | --------------- | -------- | -----------------------------------------
+Address | string (base58) | Required | A P2PKH address to lookup the account name of.
 
-# Example
+## Result
+Name   | Type   | Presence | Description
+------ | ------ | -------- | ---------------------------------------------------
+result | string | Required | The account name assigned to the address.
+
+## Example using Bash RPC script and Electron GUI console
+Get the account name assigned to the address `mrQjA6f4FQnEuoge1PpChdk3Lvnvq9iQDn`.
 
 ```
-getaccount V9fFSzY1xWtqUeZXArmG45hw2B7B53yThn
+./rpc.sh -m getaccount -p mrQjA6f4FQnEuoge1PpChdk3Lvnvq9iQDn
+getaccount ["mrQjA6f4FQnEuoge1PpChdk3Lvnvq9iQDn"]
+```
 
-mining
+The result is the account name assigned to the address.
 
+```
+{
+  "jsonrpc": "2.0",
+  "result": "Savings",
+  "id": "840"
+}
 ```
