@@ -6,7 +6,7 @@ _An unlocked or unencrypted wallet is required._
 ## Parameters
 Name    | Type            | Presence | Description
 ------- | --------------- | -------- | -----------------------------------------
-Address	| string (base58) | Required | A P2PKH address whose private key belongs to this wallet.
+Address | string (base58) | Required | A P2PKH address whose private key belongs to this wallet.
 Message | string          | Required | The message to sign.
 
 ## Result
