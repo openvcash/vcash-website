@@ -1,5 +1,6 @@
 import { action, computed, observable } from 'mobx'
 import { has, get } from 'lodash'
+import { wwwHost } from '../../package'
 import fetch from 'isomorphic-unfetch'
 
 class Docs {
@@ -69,7 +70,7 @@ class Docs {
    */
   async fetchDocs () {
     try {
-      let docs = await fetch('http://localhost:3000/api/docs')
+      let docs = await fetch(''.concat(wwwHost, '/api/docs'))
       docs = await docs.json()
 
       /** Set documents contents. */

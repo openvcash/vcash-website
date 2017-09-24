@@ -37,11 +37,9 @@ class DocsPage extends React.Component {
     }
 
     /** Fetch the translation files for the language found in the cookie. */
-    initProps.translation = await fetchTranslation(
-      initProps.language,
-      ['common'],
-      'http://localhost:3000/static/locales/'
-    )
+    initProps.translation = await fetchTranslation(initProps.language, [
+      'common'
+    ])
 
     /** Return initial properties. */
     return initProps

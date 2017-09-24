@@ -1,4 +1,5 @@
 import { action, computed, observable } from 'mobx'
+import { wwwHost } from '../../package'
 import fetch from 'isomorphic-unfetch'
 
 class News {
@@ -133,7 +134,7 @@ class News {
    */
   async fetchNews () {
     try {
-      let posts = await fetch('http://localhost:3000/api/news')
+      let posts = await fetch(''.concat(wwwHost, '/api/news'))
       posts = await posts.json()
 
       /** Set news posts. */

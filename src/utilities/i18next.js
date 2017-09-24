@@ -1,5 +1,6 @@
 import i18next from 'i18next'
 import fetch from 'isomorphic-unfetch'
+import { wwwHost } from '../../package'
 
 /**
  * Initialize a i18next instance.
@@ -24,13 +25,14 @@ export const i18n = (resources, lng) => {
  * @function fetchTranslation
  * @param {string} language - Language to fetch.
  * @param {array} files - Translation files to fetch.
- * @param {string} url - Locale location.
  */
-export async function fetchTranslation (language, files, url) {
+export async function fetchTranslation (language, files) {
   let translation = {}
 
   for (let file of files) {
-    const response = await fetch(''.concat(url, language, '/', file, '.json'))
+    const response = await fetch(
+      ''.concat(wwwHost, '/static/locales/', language, '/', file, '.json')
+    )
     translation[file] = await response.json()
   }
 

@@ -1,5 +1,6 @@
 import { action, computed, observable } from 'mobx'
 import { shortUid } from '../utilities/common'
+import { wwwHost } from '../../package'
 import fetch from 'isomorphic-unfetch'
 
 class Network {
@@ -140,7 +141,7 @@ class Network {
    */
   async fetchPeers () {
     try {
-      let peers = await fetch('http://localhost:3000/api/peers')
+      let peers = await fetch(''.concat(wwwHost, '/api/peers'))
       peers = await peers.json()
 
       /** Set peers. */

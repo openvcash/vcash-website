@@ -38,11 +38,10 @@ class NetworkPage extends React.Component {
     }
 
     /** Fetch the translation files for the language found in the cookie. */
-    initProps.translation = await fetchTranslation(
-      initProps.language,
-      ['common', 'network'],
-      'http://localhost:3000/static/locales/'
-    )
+    initProps.translation = await fetchTranslation(initProps.language, [
+      'common',
+      'network'
+    ])
 
     /** Return initial properties. */
     return initProps

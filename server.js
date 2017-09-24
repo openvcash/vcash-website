@@ -22,6 +22,16 @@ app
     /** Set favicon. */
     server.use(favicon(join(__dirname, 'static', 'images', 'favicon.ico')))
 
+    /** Allow data fetching from localhost:3000 to hostname:80. */
+    server.use((req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*')
+      res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+      )
+      next()
+    })
+
     /** Serve docs markdown files in JSON on /api/docs. */
     server.get('/api/docs', (req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json' })
