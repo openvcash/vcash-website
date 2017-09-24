@@ -9,6 +9,7 @@ website, docs and whitepapers.
 
 ## Table of Contents
 - [Install from source](#install-from-source)
+- [Use Nginx as a reverse proxy](#use-nginx-as-a-reverse-proxy)
 - [Development and production modes](#development-and-production-modes)
 - [Contributing](#contributing)
 - [License](#license)
@@ -40,6 +41,34 @@ start it using `npm start`.
     npm start
 
 The Express server will be listening on `http://localhost:3000` in both modes.
+
+## Use Nginx as a reverse proxy
+You can use this simple configuration to have Nginx act as a reverse proxy
+for the website, by proxying from `localhost:3000` to `hostname:80`.
+
+The configuration file is found at `/etc/nginx/sites-available/default`.
+
+```
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  server_name localhost;
+
+  location / {
+    proxy_pass http://localhost:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+```
+
+You can change the protocol and hostname in `package.json` by changing the
+value of `wwwHost`. By default it's set to `http://localhost:3000`. In
+production it should be changed to `//domain.tld` so the resources will be
+correctly fetched on the client side.
 
 ## Contributing
 Thank you for taking the time to help and improve the website! Please read the
