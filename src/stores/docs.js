@@ -13,10 +13,13 @@ class Docs {
   @observable viewingDoc = ''
 
   /**
-   * Fetch documents.
    * @constructor
+   * @param {boolean} isServer - Request origination (client / server).
    */
-  constructor () {
+  constructor (isServer) {
+    this.isServer = isServer
+
+    /** Fetch documents. */
     this.fetchDocs()
   }
 
@@ -70,7 +73,8 @@ class Docs {
    */
   async fetchDocs () {
     try {
-      let docs = await fetch(''.concat(wwwHost, '/api/docs'))
+      const host = this.isServer === true ? wwwHost.server : wwwHost.client
+      let docs = await fetch(''.concat(host, '/api/docs'))
       docs = await docs.json()
 
       /** Set documents contents. */
@@ -88,10 +92,10 @@ class Docs {
  */
 export const initDocs = isServer => {
   if (isServer && typeof window === 'undefined') {
-    return new Docs()
+    return new Docs(isServer)
   } else {
     if (docsStore === null) {
-      docsStore = new Docs()
+      docsStore = new Docs(isServer)
     }
 
     return docsStore

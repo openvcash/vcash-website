@@ -28,7 +28,10 @@
   "standard": {
     "parser": "babel-eslint"
   },
-  "wwwHost": "http://localhost:3000",
+  "wwwHost": {
+    "client": "http://localhost:3000",
+    "server": "http://localhost:3000"
+  },
   "dependencies": {
     "antd": "2.13.3",
     "cookie": "0.3.1",

@@ -14,9 +14,11 @@ class Network {
 
   /**
    * @constructor
+   * @param {boolean} isServer - Request origination (client / server).
    * @property {number} perPage - Table rows per page.
    */
-  constructor () {
+  constructor (isServer) {
+    this.isServer = isServer
     this.perPage = 20
   }
 
@@ -141,7 +143,8 @@ class Network {
    */
   async fetchPeers () {
     try {
-      let peers = await fetch(''.concat(wwwHost, '/api/peers'))
+      const host = this.isServer === true ? wwwHost.server : wwwHost.client
+      let peers = await fetch(''.concat(host, '/api/peers'))
       peers = await peers.json()
 
       /** Set peers. */
@@ -170,10 +173,10 @@ class Network {
  */
 export const initNetwork = isServer => {
   if (isServer && typeof window === 'undefined') {
-    return new Network()
+    return new Network(isServer)
   } else {
     if (networkStore === null) {
-      networkStore = new Network()
+      networkStore = new Network(isServer)
     }
 
     return networkStore

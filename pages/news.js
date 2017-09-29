@@ -37,9 +37,11 @@ class NewsPage extends React.Component {
     }
 
     /** Fetch the translation files for the language found in the cookie. */
-    initProps.translation = await fetchTranslation(initProps.language, [
-      'common'
-    ])
+    initProps.translation = await fetchTranslation(
+      initProps.language,
+      ['common'],
+      initProps.isServer
+    )
 
     /** Return initial properties. */
     return initProps

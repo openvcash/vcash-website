@@ -15,9 +15,11 @@ class News {
 
   /**
    * @constructor
+   * @param {boolean} isServer - Request origination (client / server).
    * @property {number} perPage - News posts per page.
    */
-  constructor () {
+  constructor (isServer) {
+    this.isServer = isServer
     this.perPage = 3
 
     /** Fetch news posts. */
@@ -134,7 +136,8 @@ class News {
    */
   async fetchNews () {
     try {
-      let posts = await fetch(''.concat(wwwHost, '/api/news'))
+      const host = this.isServer === true ? wwwHost.server : wwwHost.client
+      let posts = await fetch(''.concat(host, '/api/news'))
       posts = await posts.json()
 
       /** Set news posts. */
@@ -152,10 +155,10 @@ class News {
  */
 export const initNews = isServer => {
   if (isServer && typeof window === 'undefined') {
-    return new News()
+    return new News(isServer)
   } else {
     if (newsStore === null) {
-      newsStore = new News()
+      newsStore = new News(isServer)
     }
 
     return newsStore

@@ -25,13 +25,21 @@ export const i18n = (resources, lng) => {
  * @function fetchTranslation
  * @param {string} language - Language to fetch.
  * @param {array} files - Translation files to fetch.
+ * @param {boolean} isServer - Request origination (client / server).
  */
-export async function fetchTranslation (language, files) {
+export async function fetchTranslation (language, files, isServer) {
+  const host = isServer === true ? wwwHost.server : wwwHost.client
   let translation = {}
+
+  console.log(
+    'Fetching locale from',
+    isServer === true ? 'server' : 'client',
+    host
+  )
 
   for (let file of files) {
     const response = await fetch(
-      ''.concat(wwwHost, '/static/locales/', language, '/', file, '.json')
+      ''.concat(host, '/static/locales/', language, '/', file, '.json')
     )
     translation[file] = await response.json()
   }
