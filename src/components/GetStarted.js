@@ -1,7 +1,7 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { Tabs } from 'antd'
-import releases from '../../releases'
+import { wwwHost } from '../../package'
 
 @translate(['common'])
 class GetStarted extends React.Component {
@@ -11,6 +11,8 @@ class GetStarted extends React.Component {
   }
 
   render () {
+    const { releases } = wwwHost
+
     return (
       <div className='flex get-started'>
         <div className='content wrapper'>
