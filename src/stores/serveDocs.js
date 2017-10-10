@@ -18,13 +18,13 @@ const readFile = promisify(fs.readFile)
  * changes and updates observable contents of changed files.
  */
 class ServeDocs {
-  constructor () {
+  constructor() {
     this.docsDir = join(__dirname, '..', '..', 'content', 'docs')
 
     /** Extend with observable properties and computed property json. */
     extendObservable(this, {
       docsTree: observable.object({}),
-      get json () {
+      get json() {
         return JSON.stringify(this.docsTree)
       }
     })
@@ -38,7 +38,7 @@ class ServeDocs {
    * @function traverseDir
    * @param {string} subDir - Sub directory path.
    */
-  async traverseDir (subDir = '') {
+  async traverseDir(subDir = '') {
     const dir = subDir === '' ? this.docsDir : join(this.docsDir, subDir)
     const entries = await readdir(dir)
     const subSplit = subDir.split('/')

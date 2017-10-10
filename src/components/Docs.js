@@ -1,7 +1,7 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { inject, observer } from 'mobx-react'
-import { Menu } from 'antd'
+import Menu from 'antd/lib/menu'
 import Router from 'next/router'
 import Remarkable from 'remarkable'
 import HighlightJS from 'highlight.js'
@@ -10,14 +10,14 @@ import HighlightJS from 'highlight.js'
 @translate(['common'])
 @observer
 class Docs extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.t = props.t
     this.docs = props.docs
 
     /** Enable code highlighting in Remarkable. */
     this.md = new Remarkable({
-      highlight: function (str, lang) {
+      highlight: function(str, lang) {
         if (lang && HighlightJS.getLanguage(lang)) {
           try {
             return HighlightJS.highlight(lang, str).value
@@ -43,16 +43,18 @@ class Docs extends React.Component {
    * @function buildMenu
    * @param {object} items - Menu items.
    */
-  buildMenu (items) {
+  buildMenu(items) {
     return Object.keys(items).reduce((menu, key) => {
       menu.push(
-        items[key].hasOwnProperty('key') === true
-          ? <Menu.Item key={items[key]['key']}>
-              {key.replace(/-/g, ' ')}
-            </Menu.Item>
-          : <Menu.SubMenu key={key} title={key}>
-              {this.buildMenu(items[key])}
-            </Menu.SubMenu>
+        items[key].hasOwnProperty('key') === true ? (
+          <Menu.Item key={items[key]['key']}>
+            {key.replace(/-/g, ' ')}
+          </Menu.Item>
+        ) : (
+          <Menu.SubMenu key={key} title={key}>
+            {this.buildMenu(items[key])}
+          </Menu.SubMenu>
+        )
       )
 
       return menu
@@ -66,7 +68,7 @@ class Docs extends React.Component {
    * @param {string} key - Item key.
    * @param {array} keyPath - Item key path.
    */
-  onMenuClick ({ item, key, keyPath }) {
+  onMenuClick({ item, key, keyPath }) {
     this.docs.setViewingDoc(key)
 
     /** Navigate to the document. */
@@ -76,38 +78,36 @@ class Docs extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div style={{ flex: '1 0 auto' }}>
-        <div className='docs'>
-          <div className='content wrapper'>
-            <div className='flex' style={{ margin: '15px 0 15px 0' }}>
+        <div className="docs">
+          <div className="content wrapper">
+            <div className="flex" style={{ margin: '15px 0 15px 0' }}>
               <div
-                className='flex shadow'
+                className="flex shadow"
                 style={{
                   background: '#b60127',
                   color: '#FFFFFF',
                   padding: '2px 10px'
                 }}
               >
-                <i className='material-icons md-16'>dvr</i>
-                <p style={{ fontSize: '18px' }}>
-                  {this.t('docs')}
-                </p>
+                <i className="material-icons md-16">dvr</i>
+                <p style={{ fontSize: '18px' }}>{this.t('docs')}</p>
               </div>
             </div>
           </div>
         </div>
-        <div className='wrapper'>
+        <div className="wrapper">
           <div
-            className='flex'
+            className="flex"
             style={{
               alignItems: 'flex-start',
               margin: '10px 0 10px 0'
             }}
           >
             <div>
-              <div className='shadow docs-menu'>
+              <div className="shadow docs-menu">
                 <Menu
                   style={{ width: 240 }}
                   defaultSelectedKeys={[this.docs.id]}
@@ -117,17 +117,17 @@ class Docs extends React.Component {
                     'Technologies',
                     ...this.docs.id.split('_')
                   ]}
-                  mode='inline'
+                  mode="inline"
                   onClick={(item, key, keyPath) =>
                     this.onMenuClick(item, key, keyPath)}
-                  theme='dark'
+                  theme="dark"
                 >
                   {this.buildMenu(this.docs.contents)}
                 </Menu>
               </div>
             </div>
             <div
-              className='markdown-body'
+              className="markdown-body"
               dangerouslySetInnerHTML={{
                 __html: this.md.render(this.docs.viewing.body)
               }}

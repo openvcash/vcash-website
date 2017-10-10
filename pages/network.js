@@ -15,7 +15,7 @@ import { initNetwork } from '../src/stores/network'
 import { initRewardCalculator } from '../src/stores/rewardCalculator'
 
 class NetworkPage extends React.Component {
-  static async getInitialProps ({ req }) {
+  static async getInitialProps({ req }) {
     const initProps = {
       isServer: typeof window === 'undefined',
       language: 'en-US',
@@ -49,7 +49,7 @@ class NetworkPage extends React.Component {
     return initProps
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.i18n = i18n(props.translation, props.language)
     this.network = initNetwork(props.isServer)
@@ -60,7 +60,7 @@ class NetworkPage extends React.Component {
     )
   }
 
-  render () {
+  render() {
     return (
       <Provider network={this.network} rewardCalculator={this.rewardCalculator}>
         <I18nextProvider i18n={this.i18n}>

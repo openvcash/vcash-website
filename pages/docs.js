@@ -14,7 +14,7 @@ import Docs from '../src/components/Docs'
 import { initDocs } from '../src/stores/docs'
 
 class DocsPage extends React.Component {
-  static async getInitialProps ({ req }) {
+  static async getInitialProps({ req }) {
     const initProps = {
       isServer: typeof window === 'undefined',
       language: 'en-US',
@@ -48,13 +48,13 @@ class DocsPage extends React.Component {
     return initProps
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.i18n = i18n(props.translation, props.language)
     this.docs = initDocs(props.isServer)
   }
 
-  render () {
+  render() {
     return (
       <Provider docs={this.docs}>
         <I18nextProvider i18n={this.i18n}>

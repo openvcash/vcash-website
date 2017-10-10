@@ -1,7 +1,7 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { inject, observer } from 'mobx-react'
-import { Table } from 'antd'
+import Table from 'antd/lib/table'
 
 /** Required components. */
 import PeerClients from './charts/PeerClients'
@@ -13,29 +13,29 @@ import RewardCalculator from './RewardCalculator'
 @inject('network')
 @observer
 class Network extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.t = props.t
     this.network = props.network
     this.language = props.i18n.language
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.network.fetchPeers()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.props.network.stopFetching()
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <div className='network shadow'>
-          <div className='content wrapper'>
-            <div className='flex-sb network-info'>
-              <div className='flex'>
-                <i className='material-icons md-18'>language</i>
+        <div className="network shadow">
+          <div className="content wrapper">
+            <div className="flex-sb network-info">
+              <div className="flex">
+                <i className="material-icons md-18">language</i>
                 <p>
                   {this.t('network:health')}{' '}
                   <span style={{ fontWeight: '500' }}>
@@ -55,8 +55,8 @@ class Network extends React.Component {
                   </span>
                 </p>
               </div>
-              <div className='flex'>
-                <i className='material-icons md-18'>cached</i>
+              <div className="flex">
+                <i className="material-icons md-18">cached</i>
                 <p>
                   {this.t('network:avgRTT')}{' '}
                   <span style={{ fontWeight: '500' }}>
@@ -67,8 +67,8 @@ class Network extends React.Component {
                   </span>
                 </p>
               </div>
-              <div className='flex' style={{ justifyContent: 'flex-end' }}>
-                <i className='material-icons md-18'>extension</i>
+              <div className="flex" style={{ justifyContent: 'flex-end' }}>
+                <i className="material-icons md-18">extension</i>
                 <p>
                   {this.t('network:longestHeight')}{' '}
                   <span style={{ fontWeight: '500' }}>
@@ -84,7 +84,7 @@ class Network extends React.Component {
                 </p>
               </div>
             </div>
-            <div className='flex peer-charts'>
+            <div className="flex peer-charts">
               <PeerOSs />
               <PeerClients />
               <PeerTypes />
@@ -98,12 +98,10 @@ class Network extends React.Component {
             <RewardCalculator />
           </div>
         </div>
-        <div className='content wrapper'>
-          <div className='flex' style={{ margin: '0 0 10px 0' }}>
-            <i className='material-icons md-20'>router</i>
-            <p style={{ fontSize: '18px' }}>
-              {this.t('network:corePeers')}
-            </p>
+        <div className="content wrapper">
+          <div className="flex" style={{ margin: '0 0 10px 0' }}>
+            <i className="material-icons md-20">router</i>
+            <p style={{ fontSize: '18px' }}>{this.t('network:corePeers')}</p>
           </div>
           <Table
             bordered
@@ -138,10 +136,11 @@ class Network extends React.Component {
               {
                 dataIndex: 'protocol',
                 title: this.t('network:protocol'),
-                render: protocol =>
+                render: protocol => (
                   <div className={(protocol < 60055 && 'red') || 'green'}>
                     {protocol}
                   </div>
+                )
               },
               {
                 dataIndex: 'useragent',
@@ -156,60 +155,67 @@ class Network extends React.Component {
               {
                 dataIndex: 'uptime',
                 title: this.t('network:uptime'),
-                render: uptime =>
+                render: uptime => (
                   <div className={(uptime > 28000 && 'green') || 'orange'}>
                     {uptime} s
                   </div>
+                )
               },
               {
                 dataIndex: 'last_update',
                 title: this.t('network:lastUpdate'),
-                render: lastUpdate =>
+                render: lastUpdate => (
                   <div className={(lastUpdate < 3600 && 'green') || 'red'}>
                     {lastUpdate} s
                   </div>
+                )
               },
               {
                 dataIndex: 'last_probed',
                 title: this.t('network:lastProbed'),
-                render: lastProbed =>
+                render: lastProbed => (
                   <div className={(lastProbed < 900 && 'green') || 'red'}>
                     {lastProbed} s
                   </div>
+                )
               },
               {
                 dataIndex: 'rtt',
                 title: 'RTT',
-                render: rtt =>
+                render: rtt => (
                   <div className={(rtt < 1000 && 'green') || 'red'}>
                     {rtt} s
                   </div>
+                )
               },
               {
                 dataIndex: 'udp_bps_inbound',
                 title: 'UDP Bps (in)',
-                render: udpIn =>
+                render: udpIn => (
                   <div className={(udpIn < 8096 && 'green') || 'red'}>
                     {udpIn}
                   </div>
+                )
               },
               {
                 dataIndex: 'udp_bps_outbound',
                 title: 'UDP Bps (out)',
-                render: udpOut =>
+                render: udpOut => (
                   <div className={(udpOut < 8096 && 'green') || 'red'}>
                     {udpOut}
                   </div>
+                )
               },
               {
                 dataIndex: 'tcp_open',
                 fixed: 'right',
                 title: this.t('network:tcpOpen'),
                 width: '80px',
-                render: tcpOpen =>
+                render: tcpOpen => (
                   <div className={(tcpOpen === true && 'green') || 'red'}>
                     {tcpOpen === true ? this.t('yes') : this.t('no')}
                   </div>
+                )
               }
             ]}
             dataSource={this.network.peers.peek()}
@@ -224,7 +230,7 @@ class Network extends React.Component {
               pageSize: this.network.perPage
             }}
             scroll={{ x: 1150 }}
-            size='small'
+            size="small"
           />
         </div>
       </div>

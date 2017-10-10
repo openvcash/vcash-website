@@ -7,69 +7,69 @@ import SelectLanguage from './SelectLanguage'
 
 @translate(['common'])
 class Footer extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.t = props.t
   }
 
-  render () {
+  render() {
     return (
-      <footer className='shadow'>
-        <div className='flex-sb footer wrapper'>
-          <div className='footer-column'>
+      <footer className="shadow">
+        <div className="flex-sb footer wrapper">
+          <div className="footer-column">
             <SelectLanguage />
           </div>
-          <div className='footer-icons-wrapper'>
-            <div className='flex footer-icons'>
-              <a href='https://github.com/openvcash' target='_blank'>
+          <div className="footer-icons-wrapper">
+            <div className="flex footer-icons">
+              <a href="https://github.com/openvcash" target="_blank">
                 <img
-                  src='/static/images/iconGitHub.png'
-                  height='24px'
-                  width='24px'
+                  src="/static/images/iconGitHub.png"
+                  height="24px"
+                  width="24px"
                 />
               </a>
-              <a href='https://twitter.com/Vcashinfo' target='_blank'>
+              <a href="https://twitter.com/Vcashinfo" target="_blank">
                 <img
-                  src='/static/images/iconTwitter.png'
-                  height='21px'
-                  width='24px'
+                  src="/static/images/iconTwitter.png"
+                  height="21px"
+                  width="24px"
                 />
               </a>
-              <a href='https://slack.vcash.info' target='_blank'>
+              <a href="https://slack.vcash.info" target="_blank">
                 <img
-                  src='/static/images/iconSlack.png'
-                  height='24px'
-                  width='24px'
+                  src="/static/images/iconSlack.png"
+                  height="24px"
+                  width="24px"
                 />
               </a>
-              <a href='https://www.reddit.com/r/Vcash/' target='_blank'>
+              <a href="https://www.reddit.com/r/Vcash/" target="_blank">
                 <img
-                  src='/static/images/iconReddit.png'
-                  height='24px'
-                  width='24px'
+                  src="/static/images/iconReddit.png"
+                  height="24px"
+                  width="24px"
                 />
               </a>
               <a
-                href='https://webchat.freenode.net/?channels=vcash'
-                target='_blank'
+                href="https://webchat.freenode.net/?channels=vcash"
+                target="_blank"
               >
                 <img
-                  src='/static/images/iconIRC.png'
-                  height='19px'
-                  width='34px'
+                  src="/static/images/iconIRC.png"
+                  height="19px"
+                  width="34px"
                 />
               </a>
             </div>
           </div>
-          <div className='footer-column'>
+          <div className="footer-column">
             <Newsletter />
           </div>
         </div>
         <div
-          className='flex'
+          className="flex"
           style={{ justifyContent: 'center', margin: '20px 0 10px 0' }}
         >
-          <i className='material-icons md-16'>copyright</i>
+          <i className="material-icons md-16">copyright</i>
           <p>
             Vcash {this.t('developers')} 2013 - {new Date().getFullYear()}
           </p>

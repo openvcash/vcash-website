@@ -14,7 +14,7 @@ import News from '../src/components/News'
 import { initNews } from '../src/stores/news'
 
 class NewsPage extends React.Component {
-  static async getInitialProps ({ req }) {
+  static async getInitialProps({ req }) {
     const initProps = {
       isServer: typeof window === 'undefined',
       language: 'en-US',
@@ -48,13 +48,13 @@ class NewsPage extends React.Component {
     return initProps
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.i18n = i18n(props.translation, props.language)
     this.news = initNews(props.isServer)
   }
 
-  render () {
+  render() {
     return (
       <Provider news={this.news}>
         <I18nextProvider i18n={this.i18n}>

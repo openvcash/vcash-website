@@ -27,7 +27,7 @@ export const i18n = (resources, lng) => {
  * @param {array} files - Translation files to fetch.
  * @param {boolean} isServer - Request origination (client / server).
  */
-export async function fetchTranslation (language, files, isServer) {
+export async function fetchTranslation(language, files, isServer) {
   const host = isServer === true ? wwwHost.server : wwwHost.client
   let translation = {}
 

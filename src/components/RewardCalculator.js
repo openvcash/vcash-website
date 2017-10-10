@@ -1,7 +1,7 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { inject, observer } from 'mobx-react'
-import { Input } from 'antd'
+import Input from 'antd/lib/input'
 import moment from 'moment'
 
 /** Required components. */
@@ -11,7 +11,7 @@ import Rewards from './charts/Rewards'
 @inject('network', 'rewardCalculator')
 @observer
 class RewardCalculator extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.t = props.t
     this.network = props.network
@@ -19,16 +19,14 @@ class RewardCalculator extends React.Component {
     this.language = props.i18n.language
   }
 
-  render () {
+  render() {
     return (
-      <div className='flex-sb reward-calculator'>
-        <div className='reward-calculator-text'>
-          <div className='flex-sb' style={{ margin: '0 0 20px 0' }}>
-            <div className='flex'>
-              <i className='material-icons md-18'>extension</i>
-              <p>
-                {this.t('network:rewardCalculator')}
-              </p>
+      <div className="flex-sb reward-calculator">
+        <div className="reward-calculator-text">
+          <div className="flex-sb" style={{ margin: '0 0 20px 0' }}>
+            <div className="flex">
+              <i className="material-icons md-18">extension</i>
+              <p>{this.t('network:rewardCalculator')}</p>
             </div>
             <div>
               <Input
@@ -37,34 +35,28 @@ class RewardCalculator extends React.Component {
                 placeholder={new Intl.NumberFormat(this.language).format(
                   this.rc.block
                 )}
-                size='small'
+                size="small"
                 style={{ width: '100px' }}
                 value={this.rc.enteredBlock}
               />
             </div>
           </div>
           <div
-            className='flex-sb'
+            className="flex-sb"
             style={{ alignItems: 'flex-start', margin: '0 0 20px 0' }}
           >
             <div>
-              <div className='flex'>
-                <i className='material-icons md-16'>stars</i>
-                <p>
-                  {this.t('network:powReward')}
-                </p>
+              <div className="flex">
+                <i className="material-icons md-16">stars</i>
+                <p>{this.t('network:powReward')}</p>
               </div>
-              <div className='flex'>
-                <i className='material-icons md-16'>developer_board</i>
-                <p>
-                  {this.t('network:miningShare')}
-                </p>
+              <div className="flex">
+                <i className="material-icons md-16">developer_board</i>
+                <p>{this.t('network:miningShare')}</p>
               </div>
-              <div className='flex'>
-                <i className='material-icons md-16'>event_seat</i>
-                <p>
-                  {this.t('network:incentiveShare')}
-                </p>
+              <div className="flex">
+                <i className="material-icons md-16">event_seat</i>
+                <p>{this.t('network:incentiveShare')}</p>
               </div>
             </div>
             <div style={{ margin: '0 0 0 5px' }}>
@@ -98,18 +90,19 @@ class RewardCalculator extends React.Component {
             </div>
           </div>
 
-          {this.rc.block > this.network.stats.maxBlockHeight &&
-            <div className='flex' style={{ margin: '0 0 20px 0' }}>
-              <i className='material-icons md-16'>alarm</i>
+          {this.rc.block > this.network.stats.maxBlockHeight && (
+            <div className="flex" style={{ margin: '0 0 20px 0' }}>
+              <i className="material-icons md-16">alarm</i>
               <p>
                 {this.t('network:blockEstimation')}{' '}
                 <span style={{ fontWeight: '500' }}>
                   {moment().to(this.rc.time)}
                 </span>.
               </p>
-            </div>}
+            </div>
+          )}
         </div>
-        <div className='reward-calculator-chart'>
+        <div className="reward-calculator-chart">
           <Rewards data={this.rc.chartData} />
         </div>
       </div>

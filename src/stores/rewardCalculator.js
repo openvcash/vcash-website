@@ -13,7 +13,7 @@ class RewardCalculator {
    * @param {object} network - Network store.
    * @param {object} i18n - i18next instance.
    */
-  constructor (network, i18n) {
+  constructor(network, i18n) {
     this.network = network
     this.i18n = i18n
   }
@@ -24,7 +24,7 @@ class RewardCalculator {
    * @return {number} Block height.
    */
   @computed
-  get block () {
+  get block() {
     return this.enteredBlock.length === 0
       ? this.network.stats.maxBlockHeight
       : Math.round(this.enteredBlock)
@@ -36,7 +36,7 @@ class RewardCalculator {
    * @return {array} Chart data.
    */
   @computed
-  get chartData () {
+  get chartData() {
     let data = []
 
     for (let i = this.block; i <= this.block + 100000; i += 2500) {
@@ -62,7 +62,7 @@ class RewardCalculator {
    * @return {number} Percent.
    */
   @computed
-  get incentivePercent () {
+  get incentivePercent() {
     return calculateIncentive(this.block)
   }
 
@@ -72,7 +72,7 @@ class RewardCalculator {
    * @return {number} Reward.
    */
   @computed
-  get incentiveReward () {
+  get incentiveReward() {
     return this.powReward / 100 * this.incentivePercent
   }
 
@@ -82,7 +82,7 @@ class RewardCalculator {
    * @return {number} Reward.
    */
   @computed
-  get miningReward () {
+  get miningReward() {
     return this.powReward - this.incentiveReward
   }
 
@@ -92,7 +92,7 @@ class RewardCalculator {
    * @return {number} Reward.
    */
   @computed
-  get powReward () {
+  get powReward() {
     return calculatePoW(this.block)
   }
 
@@ -102,7 +102,7 @@ class RewardCalculator {
    * @return {number} Block time approximation.
    */
   @computed
-  get time () {
+  get time() {
     return (
       new Date().getTime() +
       1000 * 100 * (this.block - this.network.stats.maxBlockHeight)
@@ -115,7 +115,7 @@ class RewardCalculator {
    * @param {number} block - Block number.
    */
   @action
-  setBlock (e) {
+  setBlock(e) {
     const block = typeof e === 'undefined' ? '' : e.target.value
 
     if (block.toString().match(/^[0-9]{0,7}$/) !== null) {

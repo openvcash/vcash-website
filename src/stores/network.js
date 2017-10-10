@@ -17,7 +17,7 @@ class Network {
    * @param {boolean} isServer - Request origination (client / server).
    * @property {number} perPage - Table rows per page.
    */
-  constructor (isServer) {
+  constructor(isServer) {
     this.isServer = isServer
     this.perPage = 20
   }
@@ -28,7 +28,7 @@ class Network {
    * @return {object} Network statistics.
    */
   @computed
-  get stats () {
+  get stats() {
     return this.peers.reduce(
       (stats, peer, index) => {
         if (peer.tcp_open === true) {
@@ -101,7 +101,7 @@ class Network {
    * @param {number} page - Current page.
    */
   @action
-  setPage (page) {
+  setPage(page) {
     this.page = page
   }
 
@@ -111,7 +111,7 @@ class Network {
    * @param {array} peers - Core network peers.
    */
   @action
-  setPeers (peers) {
+  setPeers(peers) {
     /** Convert string values to int or boolean, and add a unique key. */
     this.peers = peers.reduce((peers, peer) => {
       let endpoint = peer.endpoint.split(':')
@@ -141,7 +141,7 @@ class Network {
    * Fetch core network peers.
    * @function fetchPeers
    */
-  async fetchPeers () {
+  async fetchPeers() {
     try {
       const host = this.isServer === true ? wwwHost.server : wwwHost.client
       let peers = await fetch(''.concat(host, '/api/peers'))
@@ -161,7 +161,7 @@ class Network {
    * Stop fetching peer data and clear the current timeout.
    * @function stopFetching
    */
-  stopFetching () {
+  stopFetching() {
     clearTimeout(this.timeoutId)
   }
 }

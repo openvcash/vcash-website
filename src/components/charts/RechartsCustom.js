@@ -24,7 +24,7 @@ export const CustomTick = props => {
   return (
     <g transform={`translate(${props.x},${props.y})`}>
       <text
-        fill='#666666'
+        fill="#666666"
         textAnchor={props.textAnchor || 'end'}
         x={props.textX || 0}
         y={props.textY || 0}
@@ -43,16 +43,17 @@ export const CustomTooltip = props => {
   if (props.active === false) return null
 
   return (
-    <div className='chartTooltip'>
-      {props.hasOwnProperty('labelText') === true &&
-        <p className='label'>
+    <div className="chartTooltip">
+      {props.hasOwnProperty('labelText') === true && (
+        <p className="label">
           {props.labelText}{' '}
           {props.labelType === 'number' &&
             new Intl.NumberFormat(props.language).format(props.label)}
-        </p>}
+        </p>
+      )}
 
-      {props.payload.map(entry =>
-        <div className='flex-sb' key={entry.name}>
+      {props.payload.map(entry => (
+        <div className="flex-sb" key={entry.name}>
           <p style={{ color: entry.color, margin: '0 72px 0 0' }}>
             {entry.name}
           </p>
@@ -65,7 +66,7 @@ export const CustomTooltip = props => {
               (props.amounts !== true && entry.value)}
           </p>
         </div>
-      )}
+      ))}
     </div>
   )
 }

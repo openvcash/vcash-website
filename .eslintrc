@@ -1,0 +1,11 @@
+{
+  "extends": ["standard", "standard-jsx"],
+  "rules": {
+    "prettier/prettier": "error",
+    "space-before-function-paren": "off",
+    "jsx-quotes": "off"
+  },
+  "parser": "babel-eslint",
+  "plugins": ["prettier"],
+  "root": true
+}

@@ -10,13 +10,13 @@ import { CustomTooltip } from './RechartsCustom'
 @inject('network')
 @observer
 class PeerTypes extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.t = props.t
     this.network = props.network
   }
 
-  render () {
+  render() {
     return (
       <PieChart width={305} height={200}>
         <Pie
@@ -32,7 +32,7 @@ class PeerTypes extends React.Component {
             }
           ]}
           outerRadius={60}
-          fill='#5f0014'
+          fill="#5f0014"
           label={({ name, value }) => name}
           labelLine={false}
         />

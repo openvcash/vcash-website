@@ -18,7 +18,7 @@ class News {
    * @param {boolean} isServer - Request origination (client / server).
    * @property {number} perPage - News posts per page.
    */
-  constructor (isServer) {
+  constructor(isServer) {
     this.isServer = isServer
     this.perPage = 3
 
@@ -32,7 +32,7 @@ class News {
    * @return {object} News posts.
    */
   @computed
-  get byId () {
+  get byId() {
     return this.posts.reduce((posts, post) => {
       posts[post.id] = post
       return posts
@@ -45,7 +45,7 @@ class News {
    * @return {object} News posts and count.
    */
   @computed
-  get filtered () {
+  get filtered() {
     let filtered = this.posts
 
     /** Search for keywords in news posts titles and bodies. */
@@ -89,7 +89,7 @@ class News {
    * @param {number} page - Current page.
    */
   @action
-  setPage (page) {
+  setPage(page) {
     this.page = page
   }
 
@@ -99,7 +99,7 @@ class News {
    * @param {array} posts - News posts.
    */
   @action
-  setPosts (posts) {
+  setPosts(posts) {
     this.posts = posts
   }
 
@@ -109,7 +109,7 @@ class News {
    * @param {string} keywords - Keywords to search by.
    */
   @action
-  setSearch (keywords) {
+  setSearch(keywords) {
     /** Clear previous timeout id. */
     clearTimeout(this.search.timeoutId)
 
@@ -134,7 +134,7 @@ class News {
    * Fetch news posts.
    * @function fetchNews
    */
-  async fetchNews () {
+  async fetchNews() {
     try {
       const host = this.isServer === true ? wwwHost.server : wwwHost.client
       let posts = await fetch(''.concat(host, '/api/news'))

@@ -9,14 +9,14 @@ const readdir = promisify(fs.readdir)
 const readFile = promisify(fs.readFile)
 
 class ServeNews {
-  constructor () {
+  constructor() {
     this.newsDir = join(__dirname, '..', '..', 'content', 'news')
 
     /** Extend with observable properties and computed property json. */
     extendObservable(this, {
       contents: observable.map({}),
       changedFiles: observable.array([]),
-      get json () {
+      get json() {
         const contents = this.contents
           .entries()
           .reduce((news, [key, value]) => {
@@ -69,7 +69,7 @@ class ServeNews {
    * @param {boolean} onlyChanged - Refresh only files with updated contents.
    * @function refresh
    */
-  async refresh (onlyChanged = false) {
+  async refresh(onlyChanged = false) {
     let newsFiles = await readdir(this.newsDir)
 
     if (onlyChanged === true) {

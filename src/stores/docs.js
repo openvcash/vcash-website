@@ -16,7 +16,7 @@ class Docs {
    * @constructor
    * @param {boolean} isServer - Request origination (client / server).
    */
-  constructor (isServer) {
+  constructor(isServer) {
     this.isServer = isServer
 
     /** Fetch documents. */
@@ -29,7 +29,7 @@ class Docs {
    * @return {string} Document path.
    */
   @computed
-  get id () {
+  get id() {
     return this.viewingDoc === '' ? 'Configuration_config.dat' : this.viewingDoc
   }
 
@@ -39,7 +39,7 @@ class Docs {
    * @return {object} Viewing document.
    */
   @computed
-  get viewing () {
+  get viewing() {
     const id = this.id.split('_')
 
     return has(this.contents, id) === true
@@ -53,7 +53,7 @@ class Docs {
    * @param {object} docs - Parsed markdown documents.
    */
   @action
-  setContents (docs) {
+  setContents(docs) {
     this.contents = docs
   }
 
@@ -63,7 +63,7 @@ class Docs {
    * @param {string} doc - Document path.
    */
   @action
-  setViewingDoc (doc) {
+  setViewingDoc(doc) {
     this.viewingDoc = doc
   }
 
@@ -71,7 +71,7 @@ class Docs {
    * Fetch docs.
    * @function fetchDocs
    */
-  async fetchDocs () {
+  async fetchDocs() {
     try {
       const host = this.isServer === true ? wwwHost.server : wwwHost.client
       let docs = await fetch(''.concat(host, '/api/docs'))

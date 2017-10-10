@@ -22,7 +22,7 @@ Make sure you have installed `git` and the latest version of
 using `git clone`, move to the cloned directory using `cd vcash-website/` and
 install Node.js dependencies using `npm install`.
 
-    git clone https://github.com/whphhg/vcash-website.git
+    git clone https://github.com/openvcash/vcash-website.git
     cd vcash-website/
     npm install
 
@@ -72,7 +72,7 @@ correctly fetched on the client side.
 
 ## Contributing
 Thank you for taking the time to help and improve the website! Please read the
-[contributing guide](https://github.com/whphhg/vcash-website/blob/master/.github/CONTRIBUTING.md).
+[contributing guide](https://github.com/openvcash/vcash-website/blob/master/.github/CONTRIBUTING.md).
 
 
 ## License
