@@ -1,6 +1,7 @@
 import React from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { Provider } from 'mobx-react'
+import { has as hasProps } from 'lodash'
 import { parse as parseCookie } from 'cookie'
 import { get as getCookie } from 'js-cookie'
 import { i18n, fetchTranslation } from '../src/utilities/i18next'
@@ -26,9 +27,9 @@ class DocsPage extends React.Component {
      */
     if (initProps.isServer === true) {
       initProps.language =
-        typeof req.headers.cookie === 'undefined'
-          ? 'en-US'
-          : parseCookie(req.headers.cookie).language
+        hasProps(req, 'headers.cookie') === true
+          ? parseCookie(req.headers.cookie).language
+          : 'en-US'
     } else {
       initProps.language =
         typeof getCookie('language') === 'undefined'

@@ -66,7 +66,7 @@ server {
 ```
 
 You can change the protocol and hostname in `package.json` by changing the
-value of `wwwHost`. By default it's set to `http://localhost:3000`. In
+`client` value in `wwwHost`. By default it's set to `http://localhost:3000`. In
 production it should be changed to `//domain.tld` so the resources will be
 correctly fetched on the client side.
 
