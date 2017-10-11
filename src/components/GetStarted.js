@@ -1,6 +1,6 @@
 import React from 'react'
 import { translate } from 'react-i18next'
-import { wwwHost } from '../../package'
+import { xvcReleases as releases } from '../../package'
 
 /** Ant Design */
 import Tabs from 'antd/lib/tabs'
@@ -13,8 +13,6 @@ class GetStarted extends React.Component {
   }
 
   render() {
-    const { releases } = wwwHost
-
     return (
       <div className="flex get-started">
         <div className="content wrapper">

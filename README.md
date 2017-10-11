@@ -26,8 +26,19 @@ install Node.js dependencies using `npm install`.
     cd vcash-website/
     npm install
 
-After the dependency installation is completed you can start the website in
-either development or production mode, as described below.
+After the dependency installation is completed create a `.www.json` file in the
+cloned directory and use the default config below. This file contains the
+server and client hostnames and protocols being used during SSR.
+
+```
+{
+  "client": "http://localhost:3000",
+  "server": "http://localhost:3000"
+}
+```
+
+You can start the website in either development or production mode,
+as described below.
 
 ## Development and production modes
 You can start the website in development mode using `npm run dev`.
@@ -65,10 +76,10 @@ server {
 }
 ```
 
-You can change the protocol and hostname in `package.json` by changing the
-`client` value in `wwwHost`. By default it's set to `http://localhost:3000`. In
-production it should be changed to `//domain.tld` so the resources will be
-correctly fetched on the client side.
+You can change the protocol and hostname being used by changing the `client`
+value in `.www.json`. By default it's set to `http://localhost:3000`. In production
+it should be changed to `//domain.tld` so the resources will be correctly
+fetched on the client side.
 
 ## Contributing
 Thank you for taking the time to help and improve the website! Please read the

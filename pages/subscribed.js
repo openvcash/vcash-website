@@ -4,7 +4,7 @@ import { Provider } from 'mobx-react'
 import { parse as parseCookie } from 'cookie'
 import { get as getCookie } from 'js-cookie'
 import { i18n, fetchTranslation } from '../src/utilities/i18next'
-import { wwwHost } from '../package'
+import www from '../.www'
 
 /** Required components. */
 import Layout from '../src/components/Layout'
@@ -13,13 +13,13 @@ import Subscribed from '../src/components/Subscribed'
 class SubscribedPage extends React.Component {
   static async getInitialProps({ req }) {
     const isServer = typeof window === 'undefined'
-    const host = isServer === true ? wwwHost.server : wwwHost.client
+    const host = isServer === true ? www.server : www.client
 
     /** Get language cookie from req headers on server or directly on client. */
     const language =
       isServer === true
         ? 'headers' in req === true
-          ? parseCookie(req.headers.cookie).language || 'en-US'
+          ? parseCookie(req.headers.cookie || 'language=en-US').language
           : 'en-US'
         : getCookie('language') || 'en-US'
 
