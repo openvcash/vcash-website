@@ -23,7 +23,8 @@ class NewsPage extends React.Component {
     const language =
       isServer === true
         ? 'headers' in req === true
-          ? parseCookie(req.headers.cookie || 'language=en-US').language
+          ? parseCookie(req.headers.cookie || 'language=en-US').language ||
+            'en-US'
           : 'en-US'
         : getCookie('language') || 'en-US'
 
