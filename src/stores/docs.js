@@ -1,26 +1,14 @@
-import { action, computed, observable } from 'mobx'
+import { action, computed, extendObservable } from 'mobx'
 import { has, get } from 'lodash'
-import { wwwHost } from '../../package'
-import fetch from 'isomorphic-unfetch'
 
 class Docs {
   /**
-   * Observable properties.
-   * @property {object} contents - Documents contents with nested paths as keys.
-   * @property {string} viewingDoc - Viewing document path.
-   */
-  @observable contents = observable.object({})
-  @observable viewingDoc = ''
-
-  /**
    * @constructor
-   * @param {boolean} isServer - Request origination (client / server).
+   * @param {object} docs - Docs.
    */
-  constructor(isServer) {
-    this.isServer = isServer
-
-    /** Fetch documents. */
-    this.fetchDocs()
+  constructor(docs) {
+    /** Extend the store with observable properties. */
+    extendObservable(this, { contents: docs, viewingDoc: '' })
   }
 
   /**
@@ -48,16 +36,6 @@ class Docs {
   }
 
   /**
-   * Set parsed markdown documents.
-   * @function setContents
-   * @param {object} docs - Parsed markdown documents.
-   */
-  @action
-  setContents(docs) {
-    this.contents = docs
-  }
-
-  /**
    * Set viewing document path.
    * @function setViewingDoc
    * @param {string} doc - Document path.
@@ -66,36 +44,20 @@ class Docs {
   setViewingDoc(doc) {
     this.viewingDoc = doc
   }
-
-  /**
-   * Fetch docs.
-   * @function fetchDocs
-   */
-  async fetchDocs() {
-    try {
-      const host = this.isServer === true ? wwwHost.server : wwwHost.client
-      let docs = await fetch(''.concat(host, '/api/docs'))
-      docs = await docs.json()
-
-      /** Set documents contents. */
-      this.setContents(docs)
-    } catch (e) {
-      console.error('Failed to fetch docs.json\n\n', e)
-    }
-  }
 }
 
 /**
  * Initialize a new store or return an existing one.
  * @function initDocs
  * @param {boolean} isServer - Calling from server or client.
+ * @param {object} docs - Docs.
  */
-export const initDocs = isServer => {
+export const initDocs = (isServer, docs) => {
   if (isServer && typeof window === 'undefined') {
-    return new Docs(isServer)
+    return new Docs(docs)
   } else {
     if (docsStore === null) {
-      docsStore = new Docs(isServer)
+      docsStore = new Docs(docs)
     }
 
     return docsStore

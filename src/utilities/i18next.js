@@ -1,6 +1,5 @@
 import i18next from 'i18next'
 import fetch from 'isomorphic-unfetch'
-import { wwwHost } from '../../package'
 
 /**
  * Initialize a i18next instance.
@@ -25,10 +24,9 @@ export const i18n = (resources, lng) => {
  * @function fetchTranslation
  * @param {string} language - Language to fetch.
  * @param {array} files - Translation files to fetch.
- * @param {boolean} isServer - Request origination (client / server).
+ * @param {string} host - Host.
  */
-export async function fetchTranslation(language, files, isServer) {
-  const host = isServer === true ? wwwHost.server : wwwHost.client
+export async function fetchTranslation(language, files, host) {
   let translation = {}
 
   for (let file of files) {

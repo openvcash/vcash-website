@@ -1,8 +1,10 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { inject, observer } from 'mobx-react'
-import Input from 'antd/lib/input'
 import moment from 'moment'
+
+/** Ant Design */
+import Input from 'antd/lib/input'
 
 /** Required components. */
 import Rewards from './charts/Rewards'
@@ -17,6 +19,9 @@ class RewardCalculator extends React.Component {
     this.network = props.network
     this.rc = props.rewardCalculator
     this.language = props.i18n.language
+
+    /** Set time and date format to the selected language. */
+    moment.locale(props.i18n.language)
   }
 
   render() {
@@ -30,7 +35,6 @@ class RewardCalculator extends React.Component {
             </div>
             <div>
               <Input
-                maxLength={7}
                 onChange={e => this.rc.setBlock(e)}
                 placeholder={new Intl.NumberFormat(this.language).format(
                   this.rc.block

@@ -1,4 +1,4 @@
-const { autorunAsync, extendObservable, observable } = require('mobx')
+const { autorunAsync, extendObservable } = require('mobx')
 const { join } = require('path')
 const { promisify } = require('util')
 const fs = require('fs')
@@ -14,8 +14,8 @@ class ServeNews {
 
     /** Extend with observable properties and computed property json. */
     extendObservable(this, {
-      contents: observable.map({}),
-      changedFiles: observable.array([]),
+      contents: new Map(),
+      changedFiles: [],
       get json() {
         const contents = this.contents
           .entries()

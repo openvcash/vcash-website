@@ -1,6 +1,8 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { inject, observer } from 'mobx-react'
+
+/** Ant Design */
 import Table from 'antd/lib/table'
 
 /** Required components. */
@@ -18,14 +20,6 @@ class Network extends React.Component {
     this.t = props.t
     this.network = props.network
     this.language = props.i18n.language
-  }
-
-  componentDidMount() {
-    this.props.network.fetchPeers()
-  }
-
-  componentWillUnmount() {
-    this.props.network.stopFetching()
   }
 
   render() {

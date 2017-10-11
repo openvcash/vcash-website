@@ -1,18 +1,15 @@
 import React from 'react'
 import { translate } from 'react-i18next'
-import Select from 'antd/lib/select'
 import { set as setCookie } from 'js-cookie'
-import moment from 'moment'
+
+/** Ant Design */
+import Select from 'antd/lib/select'
 
 @translate(['common'])
 class SelectLanguage extends React.Component {
   constructor(props) {
     super(props)
     this.t = props.t
-    this.language = props.i18n.language
-
-    /** Set time and date format to the selected language. */
-    moment.locale(this.language)
 
     /** Available languages. */
     this.languages = [
@@ -39,7 +36,7 @@ class SelectLanguage extends React.Component {
           <p>{this.t('selectLanguage')}</p>
         </div>
         <Select
-          defaultValue={this.language}
+          defaultValue={this.props.i18n.language}
           notFoundContent={this.t('languageNotFound')}
           onChange={language => this.setLanguage(language)}
           optionFilterProp="children"

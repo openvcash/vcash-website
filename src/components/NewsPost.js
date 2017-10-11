@@ -11,6 +11,9 @@ class NewsPost extends React.Component {
     super(props)
     this.t = props.t
 
+    /** Set time and date format to the selected language. */
+    moment.locale(props.i18n.language)
+
     /** Enable code highlighting in Remarkable. */
     this.md = new Remarkable({
       highlight: function(str, lang) {

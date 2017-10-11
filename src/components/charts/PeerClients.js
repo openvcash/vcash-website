@@ -1,10 +1,12 @@
 import React from 'react'
+import { translate } from 'react-i18next'
 import { inject, observer } from 'mobx-react'
 import { Pie, PieChart, Tooltip } from 'recharts'
 
 /** Required components. */
 import { CustomTooltip } from './RechartsCustom'
 
+@translate(['network'], { wait: true })
 @inject('network')
 @observer
 class PeerClients extends React.Component {

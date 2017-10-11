@@ -1,29 +1,20 @@
-import { action, computed, observable } from 'mobx'
-import { wwwHost } from '../../package'
-import fetch from 'isomorphic-unfetch'
+import { action, computed, extendObservable } from 'mobx'
 
 class News {
   /**
-   * Observable properties.
-   * @property {number} page - Pagination's current page.
-   * @property {array} posts - News posts.
-   * @property {object} search - Search value, keywords and timeout id.
-   */
-  @observable page = 1
-  @observable posts = observable.array([])
-  @observable search = { value: '', keywords: [], timeoutId: null }
-
-  /**
    * @constructor
-   * @param {boolean} isServer - Request origination (client / server).
+   * @param {array} posts - News posts.
    * @property {number} perPage - News posts per page.
    */
-  constructor(isServer) {
-    this.isServer = isServer
+  constructor(posts) {
     this.perPage = 3
 
-    /** Fetch news posts. */
-    this.fetchNews()
+    /** Extend the store with observable properties. */
+    extendObservable(this, {
+      page: 1,
+      posts,
+      search: { value: '', keywords: [], timeoutId: null }
+    })
   }
 
   /**
@@ -94,16 +85,6 @@ class News {
   }
 
   /**
-   * Set news posts.
-   * @function setPosts
-   * @param {array} posts - News posts.
-   */
-  @action
-  setPosts(posts) {
-    this.posts = posts
-  }
-
-  /**
    * Set searching keywords.
    * @function setSearch
    * @param {string} keywords - Keywords to search by.
@@ -129,36 +110,20 @@ class News {
       1 * 1000
     )
   }
-
-  /**
-   * Fetch news posts.
-   * @function fetchNews
-   */
-  async fetchNews() {
-    try {
-      const host = this.isServer === true ? wwwHost.server : wwwHost.client
-      let posts = await fetch(''.concat(host, '/api/news'))
-      posts = await posts.json()
-
-      /** Set news posts. */
-      this.setPosts(posts)
-    } catch (e) {
-      console.error('Failed to fetch news.json\n\n', e)
-    }
-  }
 }
 
 /**
  * Initialize a new store or return an existing one.
  * @function initNews
  * @param {boolean} isServer - Calling from server or client.
+ * @param {array} posts - News posts.
  */
-export const initNews = isServer => {
+export const initNews = (isServer, posts) => {
   if (isServer && typeof window === 'undefined') {
-    return new News(isServer)
+    return new News(posts)
   } else {
     if (newsStore === null) {
-      newsStore = new News(isServer)
+      newsStore = new News(posts)
     }
 
     return newsStore

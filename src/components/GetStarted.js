@@ -1,7 +1,9 @@
 import React from 'react'
 import { translate } from 'react-i18next'
-import Tabs from 'antd/lib/tabs'
 import { wwwHost } from '../../package'
+
+/** Ant Design */
+import Tabs from 'antd/lib/tabs'
 
 @translate(['common'])
 class GetStarted extends React.Component {

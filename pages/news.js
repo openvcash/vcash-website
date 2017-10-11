@@ -4,6 +4,8 @@ import { Provider } from 'mobx-react'
 import { parse as parseCookie } from 'cookie'
 import { get as getCookie } from 'js-cookie'
 import { i18n, fetchTranslation } from '../src/utilities/i18next'
+import { wwwHost } from '../package'
+import fetch from 'isomorphic-unfetch'
 
 /** Required comonents. */
 import Layout from '../src/components/Layout'
@@ -14,43 +16,31 @@ import { initNews } from '../src/stores/news'
 
 class NewsPage extends React.Component {
   static async getInitialProps({ req }) {
-    const initProps = {
-      isServer: typeof window === 'undefined',
-      language: 'en-US',
-      translation: {}
-    }
+    const isServer = typeof window === 'undefined'
+    const host = isServer === true ? wwwHost.server : wwwHost.client
 
-    /**
-     * Read the language cookie from the request headers if on the server,
-     * or read the cookie directly if on the client.
-     */
-    if (initProps.isServer === true) {
-      initProps.language =
-        'headers' in req === true
-          ? parseCookie(req.headers.cookie).language || 'en-US'
-          : 'en-US'
-    } else {
-      initProps.language =
-        typeof getCookie('language') === 'undefined'
-          ? 'en-US'
-          : getCookie('language')
-    }
+    /** Get language cookie from req headers on server or directly on client. */
+    const language =
+      isServer === true
+        ? 'headers' in req === true &&
+          parseCookie(req.headers.cookie || 'language=en-US').language
+        : getCookie('language') || 'en-US'
 
     /** Fetch the translation files for the language found in the cookie. */
-    initProps.translation = await fetchTranslation(
-      initProps.language,
-      ['common'],
-      initProps.isServer
-    )
+    const translation = await fetchTranslation(language, ['common'], host)
+
+    /** Fetch the news posts. */
+    let posts = await fetch(''.concat(host, '/api/news'))
+    posts = await posts.json()
 
     /** Return initial properties. */
-    return initProps
+    return { isServer, language, translation, posts }
   }
 
   constructor(props) {
     super(props)
     this.i18n = i18n(props.translation, props.language)
-    this.news = initNews(props.isServer)
+    this.news = initNews(props.isServer, props.posts)
   }
 
   render() {

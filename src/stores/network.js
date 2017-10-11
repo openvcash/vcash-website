@@ -1,25 +1,20 @@
-import { action, computed, observable } from 'mobx'
+import { action, computed, extendObservable } from 'mobx'
 import { shortUid } from '../utilities/common'
-import { wwwHost } from '../../package'
-import fetch from 'isomorphic-unfetch'
 
 class Network {
   /**
-   * Observable properties.
-   * @property {number} page - Pagination's current page.
-   * @property {array} peers - Peers discovered by the network crawler.
-   */
-  @observable page = 1
-  @observable peers = observable.array([])
-
-  /**
    * @constructor
-   * @param {boolean} isServer - Request origination (client / server).
+   * @param {array} peers - Peers discovered by the network crawler.
    * @property {number} perPage - Table rows per page.
    */
-  constructor(isServer) {
-    this.isServer = isServer
+  constructor(peers) {
     this.perPage = 20
+
+    /** Extend the store with observable properties. */
+    extendObservable(this, { page: 1, peers: [] })
+
+    /** Set peers. */
+    this.setPeers(peers.peers)
   }
 
   /**
@@ -136,47 +131,20 @@ class Network {
       return peers
     }, [])
   }
-
-  /**
-   * Fetch core network peers.
-   * @function fetchPeers
-   */
-  async fetchPeers() {
-    try {
-      const host = this.isServer === true ? wwwHost.server : wwwHost.client
-      let peers = await fetch(''.concat(host, '/api/peers'))
-      peers = await peers.json()
-
-      /** Set peers. */
-      this.setPeers(peers.peers)
-    } catch (e) {
-      console.error('Failed to fetch peers.json\n\n', e)
-    }
-
-    /** Refresh every two minutes. */
-    this.timeoutId = setTimeout(() => this.fetchPeers(), 2 * 60 * 1000)
-  }
-
-  /**
-   * Stop fetching peer data and clear the current timeout.
-   * @function stopFetching
-   */
-  stopFetching() {
-    clearTimeout(this.timeoutId)
-  }
 }
 
 /**
  * Initialize a new store or return an existing one.
  * @function initNetwork
  * @param {boolean} isServer - Calling from server or client.
+ * @param {array} peers - Peers discovered by the network crawler.
  */
-export const initNetwork = isServer => {
+export const initNetwork = (isServer, peers) => {
   if (isServer && typeof window === 'undefined') {
-    return new Network(isServer)
+    return new Network(peers)
   } else {
     if (networkStore === null) {
-      networkStore = new Network(isServer)
+      networkStore = new Network(peers)
     }
 
     return networkStore

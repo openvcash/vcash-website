@@ -1,4 +1,4 @@
-const { extendObservable, observable } = require('mobx')
+const { extendObservable } = require('mobx')
 const { join } = require('path')
 const { promisify } = require('util')
 const { has, set } = require('lodash')
@@ -23,7 +23,7 @@ class ServeDocs {
 
     /** Extend with observable properties and computed property json. */
     extendObservable(this, {
-      docsTree: observable.object({}),
+      docsTree: {},
       get json() {
         return JSON.stringify(this.docsTree)
       }
