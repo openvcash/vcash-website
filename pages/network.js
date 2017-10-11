@@ -23,8 +23,11 @@ class NetworkPage extends React.Component {
     /** Get language cookie from req headers on server or directly on client. */
     const language =
       isServer === true
-        ? 'headers' in req === true &&
-          parseCookie(req.headers.cookie || 'language=en-US').language
+        ? parseCookie(
+            'headers' in req === true
+              ? req.headers.cookie || 'language=en-US'
+              : 'language=en-US'
+          ).language
         : getCookie('language') || 'en-US'
 
     /** Fetch the translation files for the language found in the cookie. */

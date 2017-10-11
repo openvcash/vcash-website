@@ -3,7 +3,8 @@
   "rules": {
     "prettier/prettier": "error",
     "space-before-function-paren": "off",
-    "jsx-quotes": "off"
+    "jsx-quotes": "off",
+    "indent": "off"
   },
   "parser": "babel-eslint",
   "plugins": ["prettier"],

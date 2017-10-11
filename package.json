@@ -52,7 +52,7 @@
     }
   },
   "dependencies": {
-    "antd": "2.13.4",
+    "antd": "2.13.5",
     "cookie": "0.3.1",
     "express": "4.16.2",
     "front-matter": "2.2.0",
@@ -65,8 +65,8 @@
     "mobx-react": "4.3.3",
     "next": "2.4.9",
     "nprogress": "0.2.0",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
+    "react": "15.6.2",
+    "react-dom": "15.6.2",
     "react-i18next": "6.0.6",
     "recharts": "0.22.4",
     "remarkable": "1.7.1",
