@@ -39,13 +39,6 @@ class Features extends React.Component {
                     target="_blank"
                   >
                     Bittrex
-                  </a>{' '}
-                  {this.t('and')}{' '}
-                  <a
-                    href="https://poloniex.com/exchange#btc_xvc"
-                    target="_blank"
-                  >
-                    Poloniex
                   </a>
                 </p>
               </div>
