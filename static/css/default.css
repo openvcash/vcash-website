@@ -307,7 +307,6 @@ footer {
   box-sizing: border-box;
   font-size: inherit;
   max-width: 900px;
-  min-width: 900px;
 }
 
 .markdown-body a {

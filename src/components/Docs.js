@@ -133,6 +133,7 @@ class Docs extends React.Component {
               dangerouslySetInnerHTML={{
                 __html: this.md.render(this.docs.viewing.body)
               }}
+              style={{ width: '900px' }}
             />
           </div>
         </div>
