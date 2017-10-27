@@ -4,6 +4,7 @@
   "blendingOne": "Forms a single transaction from multiple parties by merging similar inputs and outputs, and relaying these operations in an encrypted manner between the participants.",
   "blendingTwo": "The middleman is reduced to a blind relay and the participants are unable to reconstruct the original inputs from the blended transaction.",
   "blog": "Blog",
+  "comingSoon": "Coming soon",
   "decentralizedMoney": "Decentralized money",
   "descOne": "Vcash shares the same basic network and cryptographic principles as Bitcoin.",
   "descTwo": "The code is written in a backwards compatible but modern approach using C++11.",

@@ -4,6 +4,7 @@
   "blendingOne": "Ustvari eno večstrankarsko transakcijo z združitvijo podobnih vhodov in izhodov, ter na šifriran način posreduje te operacije med udeleženci.",
   "blendingTwo": "Posrednik je reduciran na slepi rele, udeleženci pa ne morejo rekonstruirati originalnih vhodov iz zmešane transakcije.",
   "blog": "Blog",
+  "comingSoon": "Kmalu na voljo",
   "decentralizedMoney": "Decentraliziran denar",
   "descOne": "Vcash si deli ista osnovna načela omrežja in kriptografije kot Bitcoin.",
   "descTwo": "Izvorna koda je zapisana v nazaj združljivem, vendar sodobnem pristopu z uporabo C++11.",
