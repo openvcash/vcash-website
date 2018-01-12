@@ -222,7 +222,7 @@ footer {
 .short-description-link { flex-direction: column; width: 30%; }
 .short-description-link i { margin: 10px 0 10px 0; }
 .features { padding: 30px 0; text-align: center; }
-.features-body { margin: 15px 0; text-align: justify; }
+.features-body { margin: 15px 0; }
 .features-column { flex: 1; flex-direction: column; margin: 5px; padding: 15px; min-width: 290px; }
 .features-title { font-size: 16px; font-weight: 500; }
 
