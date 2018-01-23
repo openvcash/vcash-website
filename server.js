@@ -18,6 +18,9 @@ app
   .then(() => {
     const server = express()
 
+    /** Set a public directory with contents accessible on /. */
+    server.use(express.static('public'))
+
     /** Set favicon. */
     server.use(favicon(join(__dirname, 'static', 'images', 'favicon.ico')))
 
