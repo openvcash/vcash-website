@@ -2,7 +2,6 @@ import React from 'react'
 import { translate } from 'react-i18next'
 
 /** Required components. */
-import Newsletter from './Newsletter'
 import SelectLanguage from './SelectLanguage'
 
 @translate(['common'])
@@ -61,9 +60,7 @@ class Footer extends React.Component {
               </a>
             </div>
           </div>
-          <div className="footer-column">
-            <Newsletter />
-          </div>
+          <div className="footer-column" />
         </div>
         <div
           className="flex"

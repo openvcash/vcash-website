@@ -328,24 +328,6 @@ footer {
 
 
 /**
- * Subscribed
- */
-.subscribed {
-  background: url('../images/subscribed-1920.jpg');
-  flex: 1;
-  justify-content: center;
-  margin: 50px 0 0 0;
-}
-
-.subscribed p {
-  background: #FFFFFF;
-  border: 2px solid #b49f82;
-  opacity: 0.9;
-  padding: 10px 16px;
-}
-
-
-/**
  * For phone only
  */
 @media (max-width: 599px) {

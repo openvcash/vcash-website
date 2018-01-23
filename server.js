@@ -9,7 +9,6 @@ const handle = app.getRequestHandler()
 /** Required server-only stores and utilities. */
 const serveDocs = require('./src/stores/serveDocs')
 const serveNews = require('./src/stores/serveNews')
-const subscribe = require('./src/utilities/newsletter')
 
 /** Use MobX static rendering. */
 useStaticRendering(true)
@@ -62,11 +61,6 @@ app
     /** Pass along the id to /news page. */
     server.get('/news/:id', (req, res) => {
       app.render(req, res, '/news', { id: req.params.id })
-    })
-
-    /** Process newsletter subscriptions. */
-    server.post('/subscribe', (req, res) => {
-      return subscribe(req, res)
     })
 
     /** Pass everything else to app request handler. */
