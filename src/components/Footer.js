@@ -34,9 +34,9 @@ class Footer extends React.Component {
                   width="24px"
                 />
               </a>
-              <a href="https://slack.vcash.info" target="_blank">
+              <a href="https://gitter.im/openvcash/vcash" target="_blank">
                 <img
-                  src="/static/images/iconSlack.png"
+                  src="/static/images/iconGitter.png"
                   height="24px"
                   width="24px"
                 />
