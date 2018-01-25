@@ -48,7 +48,7 @@ app
 
     /** Serve network crawler data on /api/peers. */
     server.get('/api/peers', (req, res) => {
-      return res.sendFile(join(__dirname, 'content', 'peers.json'))
+      return res.sendFile(join(__dirname, 'static', 'peers.json'))
     })
 
     /** Pass along the id to /docs page. */
@@ -58,7 +58,7 @@ app
 
     /** Serve hard-coded bootstrap contacts on /n. */
     server.get('/n', (req, res) => {
-      return res.sendFile(join(__dirname, 'content', 'n.json'))
+      return res.sendFile(join(__dirname, 'static', 'n.json'))
     })
 
     /** Pass along the id to /news page. */

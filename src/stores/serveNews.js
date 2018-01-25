@@ -10,7 +10,7 @@ const readFile = promisify(fs.readFile)
 
 class ServeNews {
   constructor() {
-    this.newsDir = join(__dirname, '..', '..', 'content', 'news')
+    this.newsDir = join(__dirname, '..', '..', 'static', 'contents', 'news')
 
     /** Extend with observable properties and computed property json. */
     extendObservable(this, {
