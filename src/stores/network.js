@@ -1,13 +1,16 @@
 import { action, computed, extendObservable } from 'mobx'
-import { shortUid } from '../utilities/common.js'
+import { getHost, shortUid } from '../utilities/common.js'
+import fetch from 'isomorphic-unfetch'
 
 class Network {
   /**
    * @constructor
    * @param {array} peers - Peers discovered by the network crawler.
-   * @property {number} perPage - Table rows per page.
+   * @prop {number} lastUpdate - Last time the peers were updated.
+   * @prop {number} perPage - Table rows per page.
    */
   constructor(peers) {
+    this.lastUpdate = 0
     this.perPage = 20
 
     /** Extend the store with observable properties. */
@@ -107,6 +110,9 @@ class Network {
    */
   @action
   setPeers(peers) {
+    /** Set last update time in ms. */
+    this.lastUpdate = Date.now()
+
     /** Convert string values to int or boolean, and add a unique key. */
     this.peers = peers.reduce((peers, peer) => {
       let endpoint = peer.endpoint.split(':')
@@ -130,6 +136,36 @@ class Network {
 
       return peers
     }, [])
+  }
+
+  /**
+   * Update network peers info.
+   * @function getPeers
+   * @param {boolean} isServer - Calling from server or client.
+   */
+  async getPeers(isServer) {
+    let peers = await fetch(''.concat(getHost(isServer), '/api/peers'))
+    peers = await peers.json()
+
+    /** Set peers and a new timeout for 1min. */
+    this.setPeers(peers.peers)
+    this.updateTimeout = setTimeout(() => this.getPeers(isServer), 60 * 1000)
+  }
+
+  /**
+   * Start or stop the peers auto-update loop.
+   * @function update
+   * @param {boolean} start - Start or stop the update loop.
+   * @param {boolean} isServer - Calling from server or client.
+   */
+  update(start, isServer) {
+    if (start === false) return clearTimeout(this.updateTimeout)
+
+    /** Update peers if they're older than 30s (switching between pages.) */
+    const diff = Date.now() - this.lastUpdate
+    const updateIn = diff > 30 * 1000 ? 1 : diff
+
+    this.updateTimeout = setTimeout(() => this.getPeers(isServer), updateIn)
   }
 }
 

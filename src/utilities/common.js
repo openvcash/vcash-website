@@ -1,5 +1,16 @@
 import { parse as parseCookie } from 'cookie'
 import { get as getCookie } from 'js-cookie'
+import www from '../../.www.json'
+
+/**
+ * Get client or server fetching host.
+ * @function getHost
+ * @param {boolean} isServer - Calling from server or client.
+ * @return {string} Server or client host.
+ */
+export const getHost = isServer => {
+  return isServer === true ? www.server : www.client
+}
 
 /**
  * Read language cookie from req headers on server or directly on client.

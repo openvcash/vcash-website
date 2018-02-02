@@ -1,11 +1,10 @@
 # Vcash website
-
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Standard style guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-:honeybee: Vcash community website built using
+Vcash community website built using
 [Next.js](https://github.com/zeit/next.js/), with content from the original
-website, docs and whitepapers.
+website, docs and white papers.
 
 ## Table of Contents
 - [Install from source](#install-from-source)
@@ -18,9 +17,8 @@ website, docs and whitepapers.
 
 ## Install from source
 Make sure you have installed `git` and the latest version of
-[Node.js](https://nodejs.org/en/download/current/). Then clone this repository
-using `git clone`, move to the cloned directory using `cd vcash-website/` and
-install Node.js dependencies using `npm install`.
+[Node.js](https://nodejs.org/en/download/current/), then clone this repository,
+move to the cloned directory and install Node.js dependencies.
 
     git clone https://github.com/openvcash/vcash-website.git
     cd vcash-website/

@@ -22,6 +22,16 @@ class Network extends React.Component {
     this.language = props.i18n.language
   }
 
+  /** Start the peers auto-update loop. */
+  componentDidMount() {
+    this.network.update(true, typeof window === 'undefined')
+  }
+
+  /** Stop the peers auto-update loop. */
+  componentWillUnmount() {
+    this.network.update(false)
+  }
+
   render() {
     return (
       <div>
