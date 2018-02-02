@@ -18,7 +18,9 @@ class Docs {
    */
   @computed
   get id() {
-    return this.viewingDoc === '' ? 'Configuration_config.dat' : this.viewingDoc
+    return this.viewingDoc === ''
+      ? 'Configuration_File-definitions'
+      : this.viewingDoc
   }
 
   /**
