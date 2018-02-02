@@ -1,4 +1,4 @@
-## Configuration file locations
+# Configuration file locations
 Operating system | Location
 ---------------- | -------------------------------------------------------------
 Linux            | `/home/username/.Vcash/data`

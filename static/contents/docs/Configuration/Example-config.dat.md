@@ -1,4 +1,4 @@
-## Example config.dat file
+# Example config.dat file
 ```
 {
   "version": "1",
