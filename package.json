@@ -1,7 +1,7 @@
 {
   "name": "vcash-website",
   "productName": "Vcash community website",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Vcash community website built using Next.js",
   "author": "whphhg <whphhg@protonmail.ch>",
   "license": "GPL-3.0",

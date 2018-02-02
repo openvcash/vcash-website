@@ -2,7 +2,7 @@ import React from 'react'
 import { translate } from 'react-i18next'
 
 /** Required components. */
-import SelectLanguage from './SelectLanguage'
+import SelectLanguage from './SelectLanguage.js'
 
 @translate(['common'])
 class Footer extends React.Component {
@@ -18,7 +18,15 @@ class Footer extends React.Component {
           <div className="footer-column">
             <SelectLanguage />
           </div>
-          <div className="footer-icons-wrapper">
+          <div className="footer-column">
+            <div className="flex-center">
+              <i className="material-icons md-16">copyright</i>
+              <p>
+                Vcash {this.t('developers')} 2013 - {new Date().getFullYear()}
+              </p>
+            </div>
+          </div>
+          <div className="footer-column">
             <div className="flex footer-icons">
               <a href="https://github.com/openvcash" target="_blank">
                 <img
@@ -60,16 +68,6 @@ class Footer extends React.Component {
               </a>
             </div>
           </div>
-          <div className="footer-column" />
-        </div>
-        <div
-          className="flex"
-          style={{ justifyContent: 'center', margin: '20px 0 10px 0' }}
-        >
-          <i className="material-icons md-16">copyright</i>
-          <p>
-            Vcash {this.t('developers')} 2013 - {new Date().getFullYear()}
-          </p>
         </div>
       </footer>
     )

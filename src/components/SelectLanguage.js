@@ -30,8 +30,8 @@ class SelectLanguage extends React.Component {
 
   render() {
     return (
-      <div className="flex-sb">
-        <div className="flex">
+      <div className="flex select-language">
+        <div className="flex" style={{ margin: '0 10px 0 0' }}>
           <i className="material-icons md-16">language</i>
           <p>{this.t('selectLanguage')}</p>
         </div>

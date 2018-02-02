@@ -72,15 +72,19 @@ body {
 }
 
 /******************************** Flex aliases ********************************/
-.flex {
+.flex,
+.flex-center,
+.flex-sb {
   align-items: center;
   display: flex;
 }
 
+.flex-center {
+  justify-content: center;
+}
+
 .flex-sb {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /** Align elements left and right */
   width: 100%;
 }
 
@@ -162,11 +166,15 @@ footer {
 
 .footer {
   flex-wrap: wrap;
-  margin: 10px auto auto auto;
+  margin: 10px auto 10px auto;
 }
 
 .footer-column {
-  min-width: 300px;
+  min-width: 33%;
+}
+
+.footer-icons {
+  justify-content: flex-end;
 }
 
 .footer-icons a {
@@ -175,10 +183,6 @@ footer {
 
 .footer-icons a:last-child {
   margin: 0;
-}
-
-.footer-icons-wrapper {
-  margin: 0 auto 0 auto;
 }
 
 /************************************ Home ************************************/
@@ -378,9 +382,22 @@ footer {
     min-width: 100%;
   }
 
-  .footer-icons-wrapper {
-    margin: 20px auto 0 auto;
+  .footer-icons,
+  .select-language {
+    justify-content: center;
+  }
+
+  .footer > div:nth-child(1) {
     order: 3;
+  }
+
+  .footer > div:nth-child(2) {
+    justify-content: center;
+    order: 2;
+  }
+
+  .footer > div:nth-child(3) {
+    order: 1;
   }
 
   .header-link {
@@ -436,6 +453,18 @@ footer {
 
 /************************** For tablet portrait up ****************************/
 @media (min-width: 600px) {
+  .footer > div:nth-child(1) {
+    order: 3;
+  }
+
+  .footer > div:nth-child(2) {
+    order: 1;
+  }
+
+  .footer > div:nth-child(3) {
+    order: 2;
+  }
+
   .header-link span {
     display: none;
   }
@@ -460,6 +489,18 @@ footer {
 
 /************************* For tablet landscape up ****************************/
 @media (min-width: 900px) {
+  .footer > div:nth-child(1) {
+    order: 1;
+  }
+
+  .footer > div:nth-child(2) {
+    order: 2;
+  }
+
+  .footer > div:nth-child(3) {
+    order: 3;
+  }
+
   .header-link span {
     display: inherit;
   }
