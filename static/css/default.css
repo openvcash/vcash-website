@@ -1,10 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed|Roboto:400,500&subset=latin-ext');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url(https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed|Roboto:400,500&subset=latin-ext);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 
-/**
- * General
- */
+/******************************* Basic elements *******************************/
+::selection {
+  background: #43464B;
+}
+
+a {
+  color: #b60127;
+}
+
+a:active {
+  color: #b60127;
+}
+
+a:hover {
+  color: #5f0014;
+}
+
 body {
   background: url('../images/patternCreamDust.png');
   font-family: 'Roboto', sans-serif;
@@ -29,28 +43,22 @@ body {
   margin-top: 50px;
 }
 
-.flex {
-  align-items: center;
-  display: flex;
+/************************************ Misc ************************************/
+.raleway {
+  font-family: 'Raleway', sans-serif;
 }
 
-.flex-sb {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.roboto-condensed {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .shadow {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-              0 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  0 3px 1px -2px rgba(0, 0, 0, 0.2),
+  0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-::selection {
-  background: #43464B;
-}
-
+/************************* Success, warning and error *************************/
 .green {
   color: #4fb71c;
 }
@@ -63,22 +71,20 @@ body {
   color: #b60127;
 }
 
-
-/**
- * Fonts
- */
-.raleway {
-  font-family: 'Raleway', sans-serif;
+/******************************** Flex aliases ********************************/
+.flex {
+  align-items: center;
+  display: flex;
 }
 
-.roboto-condensed {
-  font-family: 'Roboto Condensed', sans-serif;
+.flex-sb {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-
-/**
- * Material and Font-Awesome icons
- */
+/******************************* Material icons *******************************/
 .material-icons.md-14 {
   font-size: 14px;
 }
@@ -108,10 +114,7 @@ body {
   margin: 0 0 0 10px;
 }
 
-
-/**
- * Recharts
- */
+/****************************** Recharts tooltip ******************************/
 .chartTooltip {
   background-color: rgba(255, 255, 255, 0.85);
   border: 1px solid #f5f5f5;
@@ -125,10 +128,7 @@ body {
   margin: 0;
 }
 
-
-/**
- * Header
- */
+/*********************************** Header ***********************************/
 .header-link {
   align-items: center;
   margin: 0 0 0 25px;
@@ -140,10 +140,7 @@ body {
   text-transform: uppercase;
 }
 
-
-/**
- * Navigation
- */
+/********************************* Navigation *********************************/
 .navigation {
   background-color: #b60127;
   height: 50px;
@@ -157,10 +154,7 @@ body {
   color: #ffffff;
 }
 
-
-/**
- * Footer
- */
+/*********************************** Footer ***********************************/
 footer {
   background: url('../images/patternWhitey.png');
   flex-shrink: 0;
@@ -187,10 +181,7 @@ footer {
   margin: 0 auto 0 auto;
 }
 
-
-/**
- * Home
- */
+/************************************ Home ************************************/
 .get-started {
   background: url('../images/getStarted-1200.jpg');
   min-height: 600px;
@@ -201,13 +192,39 @@ footer {
   min-width: 520px;
 }
 
-.download-bar { padding: 5px 10px 5px 10px; margin: 5px 0 0 0; background: #b60127; color: #FFFFFF; }
-.download-bar a { color: #FFFFFF; }
-.download-tab { align-items: flex-start; min-height: 470px; }
-.download-link { margin: 0 0 0 15px; min-width: 30%; }
-.download-link a { color: #FFFFFF; }
-.download-link p { font-weight: 500; }
-.download-links i { color: #5f0014; }
+.download-bar {
+  background: #b60127;
+  color: #FFFFFF;
+  margin: 5px 0 0 0;
+  padding: 5px 10px 5px 10px;
+}
+
+.download-bar a {
+  color: #FFFFFF;
+}
+
+.download-tab {
+  align-items: flex-start;
+  min-height: 470px;
+}
+
+.download-link {
+  margin: 0 0 0 15px;
+  min-width: 30%;
+}
+
+.download-link a {
+  color: #FFFFFF;
+}
+
+.download-link p {
+  font-weight: 500;
+}
+
+.download-links i {
+  color: #5f0014;
+}
+
 .download-links > div {
   background: #b60127;
   color: #FFFFFF;
@@ -216,20 +233,53 @@ footer {
   margin: 5px;
   padding: 5px;
 }
-.signatures { justify-content: center; }
-.signatures > div { margin: 5px; }
-.short-description { background: url('../images/patternWhitey.png'); padding: 20px 0 20px 0; text-align: center; }
-.short-description-link { flex-direction: column; width: 30%; }
-.short-description-link i { margin: 10px 0 10px 0; }
-.features { padding: 30px 0; text-align: center; }
-.features-body { margin: 15px 0; }
-.features-column { flex: 1; flex-direction: column; margin: 5px; padding: 15px; min-width: 290px; }
-.features-title { font-size: 16px; font-weight: 500; }
 
+.signatures {
+  justify-content: center;
+}
 
-/**
- * News
- */
+.signatures > div {
+  margin: 5px;
+}
+
+.short-description {
+  background: url('../images/patternWhitey.png');
+  padding: 20px 0 20px 0;
+  text-align: center;
+}
+
+.short-description-link {
+  flex-direction: column;
+  width: 30%;
+}
+
+.short-description-link i {
+  margin: 10px 0 10px 0;
+}
+
+.features {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.features-body {
+  margin: 15px 0;
+}
+
+.features-column {
+  flex: 1;
+  flex-direction: column;
+  margin: 5px;
+  min-width: 290px;
+  padding: 15px;
+}
+
+.features-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/************************************ News ************************************/
 .news-post {
   background: url('../images/patternWhitey.png');
   border-bottom: 1px solid #aeaebd;
@@ -267,10 +317,7 @@ footer {
   padding: 10px;
 }
 
-
-/**
- * Network
- */
+/********************************** Network ***********************************/
 .network {
   background: url('../images/patternCubes.png')
 }
@@ -290,9 +337,7 @@ footer {
   min-width: 350px;
 }
 
-/**
- * Docs
- */
+/************************************ Docs ************************************/
 .docs {
   background: url('../images/patternPinstripedSuit.png')
 }
@@ -326,39 +371,70 @@ footer {
   font-size: 0.9em;
 }
 
-
-/**
- * For phone only
- */
+/****************************** For phone only ********************************/
 @media (max-width: 599px) {
-  .footer-column { margin: 5px 0 5px 0; min-width: 100%; }
-  .footer-icons-wrapper { margin: 20px auto 0 auto; order: 3; }
-  .header-link { margin: 0 0 0 10px; }
-  .header-link span { display: none; }
-  .news-post { flex-direction: column; }
-  .news-search { flex-direction: column; }
-  .peer-charts { flex-direction: column; }
-  .reward-calculator { flex-direction: column; }
-  .reward-calculator-text { min-width: inherit; }
+  .footer-column {
+    margin: 5px 0 5px 0;
+    min-width: 100%;
+  }
+
+  .footer-icons-wrapper {
+    margin: 20px auto 0 auto;
+    order: 3;
+  }
+
+  .header-link {
+    margin: 0 0 0 10px;
+  }
+
+  .header-link span {
+    display: none;
+  }
+
+  .news-post {
+    flex-direction: column;
+  }
+
+  .news-search {
+    flex-direction: column;
+  }
+
+  .peer-charts {
+    flex-direction: column;
+  }
+
+  .reward-calculator {
+    flex-direction: column;
+  }
+
+  .reward-calculator-text {
+    min-width: inherit;
+  }
 
   .get-started > div {
     max-width: 300px;
     min-width: 300px;
   }
 
-  .download-tab > img { width: 280px; }
-  .download-links { flex-direction: column; }
-  .signatures { flex-direction: column; margin: 15px 0 0 0; }
+  .download-tab > img {
+    width: 280px;
+  }
+
+  .download-links {
+    flex-direction: column;
+  }
+
+  .signatures {
+    flex-direction: column;
+    margin: 15px 0 0 0;
+  }
 
   .wrapper {
     max-width: 599px;
   }
 }
 
-
-/**
- * For tablet portrait up
- */
+/************************** For tablet portrait up ****************************/
 @media (min-width: 600px) {
   .header-link span {
     display: none;
@@ -382,18 +458,35 @@ footer {
   }
 }
 
-
-/**
- * For tablet landscape up
- */
+/************************* For tablet landscape up ****************************/
 @media (min-width: 900px) {
-  .header-link span { display: inherit; }
-  .network-info > div { width: 200px; }
-  .network-info p { margin: 1px 0 0 10px; }
-  .news-post { flex-direction: row; }
-  .peer-charts { flex-direction: row; }
-  .reward-calculator { flex-direction: row; }
-  .reward-calculator-chart { width: 450px; }
+  .header-link span {
+    display: inherit;
+  }
+
+  .network-info > div {
+    width: 200px;
+  }
+
+  .network-info p {
+    margin: 1px 0 0 10px;
+  }
+
+  .news-post {
+    flex-direction: row;
+  }
+
+  .peer-charts {
+    flex-direction: row;
+  }
+
+  .reward-calculator {
+    flex-direction: row;
+  }
+
+  .reward-calculator-chart {
+    width: 450px;
+  }
 
   .wrapper {
     max-width: 900px;
@@ -401,24 +494,45 @@ footer {
   }
 }
 
-
-/**
- * For desktop up
- */
+/****************************** For desktop up ********************************/
 @media (min-width: 1200px) {
   .get-started {
     background: url('../images/getStarted-1920.jpg');
     min-height: 660px;
   }
 
-  .header-link span { display: inherit; }
-  .network-info > div { width: auto; text-align: left; }
-  .network-info p { margin: 1px 0 0 5px; }
-  .news-post { flex-direction: row; }
-  .peer-charts { flex-direction: row; }
-  .reward-calculator { flex-direction: row; }
-  .reward-calculator-chart { width: 750px; }
-  .reward-calculator-text { min-width: 350px; }
+  .header-link span {
+    display: inherit;
+  }
+
+  .network-info > div {
+    text-align: left;
+    width: auto;
+  }
+
+  .network-info p {
+    margin: 1px 0 0 5px;
+  }
+
+  .news-post {
+    flex-direction: row;
+  }
+
+  .peer-charts {
+    flex-direction: row;
+  }
+
+  .reward-calculator {
+    flex-direction: row;
+  }
+
+  .reward-calculator-chart {
+    width: 750px;
+  }
+
+  .reward-calculator-text {
+    min-width: 350px;
+  }
 
   .wrapper {
     max-width: 1200px;
@@ -426,26 +540,7 @@ footer {
   }
 }
 
-
-/**
- * Links
- */
-a {
-  color: #b60127;
-}
-
-a:active {
-  color: #b60127;
-}
-
-a:hover {
-  color: #5f0014;
-}
-
-
-/**
- * Ant design
- */
+/********************************* Ant Design *********************************/
 .ant-btn:hover,
 .ant-btn:focus {
   border-color: #b60127;
