@@ -1,6 +1,6 @@
 import React from 'react'
 import { translate } from 'react-i18next'
-import { xvcReleases as releases } from '../../package'
+import releases from '../../.releases.json'
 
 /** Ant Design */
 import Tabs from 'antd/lib/tabs'
