@@ -30,10 +30,10 @@ export async function fetchTranslation(language, files, host) {
   let translation = {}
 
   for (let file of files) {
-    const response = await fetch(
+    const res = await fetch(
       ''.concat(host, '/static/locales/', language, '/', file, '.json')
     )
-    translation[file] = await response.json()
+    translation[file] = await res.json()
   }
 
   return { [language]: translation }

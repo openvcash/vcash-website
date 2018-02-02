@@ -1,18 +1,18 @@
 import React from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { Provider } from 'mobx-react'
-import { i18n, fetchTranslation } from '../src/utilities/i18next'
-import { readCookie } from '../src/utilities/common'
+import { i18n, fetchTranslation } from '../src/utilities/i18next.js'
+import { readCookie } from '../src/utilities/common.js'
 import fetch from 'isomorphic-unfetch'
-import www from '../.www'
+import www from '../.www.json'
 
 /** Required components. */
-import Layout from '../src/components/Layout'
-import Network from '../src/components/Network'
+import Layout from '../src/components/Layout.js'
+import Network from '../src/components/Network.js'
 
 /** Required stores. */
-import { initNetwork } from '../src/stores/network'
-import { initRewardCalculator } from '../src/stores/rewardCalculator'
+import { initNetwork } from '../src/stores/network.js'
+import { initRewardCalculator } from '../src/stores/rewardCalculator.js'
 
 class NetworkPage extends React.Component {
   static async getInitialProps({ req }) {

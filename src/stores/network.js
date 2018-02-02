@@ -1,5 +1,5 @@
 import { action, computed, extendObservable } from 'mobx'
-import { shortUid } from '../utilities/common'
+import { shortUid } from '../utilities/common.js'
 
 class Network {
   /**

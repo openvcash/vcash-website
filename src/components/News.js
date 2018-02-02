@@ -7,7 +7,7 @@ import Input from 'antd/lib/input'
 import Pagination from 'antd/lib/pagination'
 
 /** Required components. */
-import NewsPost from './NewsPost'
+import NewsPost from './NewsPost.js'
 
 @translate(['common'])
 @inject('news')

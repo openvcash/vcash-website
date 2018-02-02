@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react'
 import { Pie, PieChart, Tooltip } from 'recharts'
 
 /** Required components. */
-import { CustomTooltip } from './RechartsCustom'
+import { CustomTooltip } from './RechartsCustom.js'
 
 @translate(['network'], { wait: true })
 @inject('network')

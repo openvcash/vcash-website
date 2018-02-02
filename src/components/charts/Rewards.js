@@ -12,7 +12,7 @@ import {
 } from 'recharts'
 
 /** Required components. */
-import { CustomTick, CustomTooltip } from './RechartsCustom'
+import { CustomTick, CustomTooltip } from './RechartsCustom.js'
 
 @translate(['network'], { wait: true })
 @inject(['rewardCalculator'])

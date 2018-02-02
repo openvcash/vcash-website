@@ -1,5 +1,5 @@
 import { action, computed, observable } from 'mobx'
-import { calculateIncentive, calculatePoW } from '../utilities/blockRewards'
+import { calculateIncentive, calculatePoW } from '../utilities/blockRewards.js'
 
 class RewardCalculator {
   /**

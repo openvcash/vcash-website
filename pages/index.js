@@ -1,14 +1,14 @@
 import React from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { Provider } from 'mobx-react'
-import { i18n, fetchTranslation } from '../src/utilities/i18next'
-import { readCookie } from '../src/utilities/common'
-import www from '../.www'
+import { i18n, fetchTranslation } from '../src/utilities/i18next.js'
+import { readCookie } from '../src/utilities/common.js'
+import www from '../.www.json'
 
 /** Required components. */
-import Features from '../src/components/Features'
-import GetStarted from '../src/components/GetStarted'
-import Layout from '../src/components/Layout'
+import Features from '../src/components/Features.js'
+import GetStarted from '../src/components/GetStarted.js'
+import Layout from '../src/components/Layout.js'
 
 class HomePage extends React.Component {
   static async getInitialProps({ req }) {

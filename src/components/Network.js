@@ -6,10 +6,10 @@ import { inject, observer } from 'mobx-react'
 import Table from 'antd/lib/table'
 
 /** Required components. */
-import PeerClients from './charts/PeerClients'
-import PeerOSs from './charts/PeerOSs'
-import PeerTypes from './charts/PeerTypes'
-import RewardCalculator from './RewardCalculator'
+import PeerClients from './charts/PeerClients.js'
+import PeerOSs from './charts/PeerOSs.js'
+import PeerTypes from './charts/PeerTypes.js'
+import RewardCalculator from './RewardCalculator.js'
 
 @translate(['common', 'network'])
 @inject('network')

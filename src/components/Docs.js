@@ -121,7 +121,8 @@ class Docs extends React.Component {
                   ]}
                   mode="inline"
                   onClick={(item, key, keyPath) =>
-                    this.onMenuClick(item, key, keyPath)}
+                    this.onMenuClick(item, key, keyPath)
+                  }
                   theme="dark"
                 >
                   {this.buildMenu(this.docs.contents)}

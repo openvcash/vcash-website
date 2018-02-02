@@ -7,7 +7,7 @@ import moment from 'moment'
 import Input from 'antd/lib/input'
 
 /** Required components. */
-import Rewards from './charts/Rewards'
+import Rewards from './charts/Rewards.js'
 
 @translate(['network'], { wait: true })
 @inject('network', 'rewardCalculator')
