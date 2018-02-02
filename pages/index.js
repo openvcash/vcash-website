@@ -2,8 +2,7 @@ import React from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { Provider } from 'mobx-react'
 import { i18n, fetchTranslation } from '../src/utilities/i18next.js'
-import { readCookie } from '../src/utilities/common.js'
-import www from '../.www.json'
+import { getHost, readCookie } from '../src/utilities/common.js'
 
 /** Required components. */
 import Features from '../src/components/Features.js'
@@ -13,7 +12,7 @@ import Layout from '../src/components/Layout.js'
 class HomePage extends React.Component {
   static async getInitialProps({ req }) {
     const isServer = typeof window === 'undefined'
-    const host = isServer === true ? www.server : www.client
+    const host = getHost(isServer)
     const language = readCookie(isServer, req)
 
     /** Fetch the translation files for the language found in the cookie. */

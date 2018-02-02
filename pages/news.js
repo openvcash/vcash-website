@@ -2,9 +2,8 @@ import React from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { Provider } from 'mobx-react'
 import { i18n, fetchTranslation } from '../src/utilities/i18next.js'
-import { readCookie } from '../src/utilities/common.js'
+import { getHost, readCookie } from '../src/utilities/common.js'
 import fetch from 'isomorphic-unfetch'
-import www from '../.www.json'
 
 /** Required comonents. */
 import Layout from '../src/components/Layout.js'
@@ -16,7 +15,7 @@ import { initNews } from '../src/stores/news.js'
 class NewsPage extends React.Component {
   static async getInitialProps({ req }) {
     const isServer = typeof window === 'undefined'
-    const host = isServer === true ? www.server : www.client
+    const host = getHost(isServer)
     const language = readCookie(isServer, req)
 
     /** Fetch the translation files for the language found in the cookie. */
