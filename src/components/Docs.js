@@ -74,10 +74,7 @@ class Docs extends React.Component {
     this.docs.setViewingDoc(key)
 
     /** Navigate to the document. */
-    Router.push({
-      pathname: '/docs',
-      query: { id: key }
-    })
+    Router.push('/docs?id=' + key, '/docs/' + key)
   }
 
   render() {
