@@ -5,6 +5,7 @@
   "bad": "bad",
   "blockEstimation": "Block is estimated to be mined",
   "corePeers": "Core network peers",
+  "crawlerUnavailable": "Network crawler is currently unavailable.",
   "endpoint": "Endpoint",
   "excellent": "excellent",
   "firewalled": "Firewalled",

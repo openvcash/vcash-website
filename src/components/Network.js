@@ -33,6 +33,18 @@ class Network extends React.Component {
   }
 
   render() {
+    /** Render a placeholder if the network crawler is unavailable. */
+    if (this.network.peers.length === 0) {
+      return (
+        <div className="content flex-center">
+          <div className="flex">
+            <i className="material-icons md-21">bug_report</i>
+            <p>{this.t('network:crawlerUnavailable')}</p>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div>
         <div className="network shadow">

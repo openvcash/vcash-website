@@ -6,9 +6,10 @@ const { join } = require('path')
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 
-/** Required server-only stores and utilities. */
-const serveDocs = require('./src/stores/serveDocs')
-const serveNews = require('./src/stores/serveNews')
+/** Required server-only stores. */
+const serveDocs = require('./src/stores/serveDocs.js')
+const serveNews = require('./src/stores/serveNews.js')
+const servePeers = require('./src/stores/servePeers.js')
 
 /** Use MobX static rendering. */
 useStaticRendering(true)
@@ -48,7 +49,8 @@ app
 
     /** Serve network crawler data on /api/peers. */
     server.get('/api/peers', (req, res) => {
-      return res.sendFile(join(__dirname, 'static', 'peers.json'))
+      res.writeHead(200, { 'Content-Type': 'application/json' })
+      return res.end(servePeers.json)
     })
 
     /** Pass along the id to /docs page. */
@@ -58,7 +60,7 @@ app
 
     /** Serve hard-coded bootstrap contacts on /n. */
     server.get('/n', (req, res) => {
-      return res.sendFile(join(__dirname, 'static', 'n.json'))
+      return res.sendFile(join(__dirname, 'static', 'contents', 'n.json'))
     })
 
     /** Pass along the id to /news page. */

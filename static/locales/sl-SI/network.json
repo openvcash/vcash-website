@@ -5,6 +5,7 @@
   "bad": "kritično",
   "blockEstimation": "Blok bo predvidoma najden",
   "corePeers": "Soležniki jedra omrežja",
+  "crawlerUnavailable": "Omrežni plazilec je trenutno nedosegljiv.",
   "endpoint": "Končna točka",
   "excellent": "odlično",
   "firewalled": "Nedostopni",
