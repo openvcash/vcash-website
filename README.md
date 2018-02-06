@@ -24,7 +24,7 @@ move to the cloned directory and install Node.js dependencies.
     cd vcash-website/
     npm install
 
-After the dependency installation is completed create a `.www.json` file in the
+After the dependency installation is completed, create a `.www.json` file in the
 cloned directory and use the default config below. This file contains the
 server and client hostnames and protocols being used during SSR.
 
@@ -39,13 +39,11 @@ You can start the website in either development or production mode,
 as described below.
 
 ## Development and production modes
-You can start the website in development mode using `npm run dev`.
+You can start the website in development mode using `npm run dev`, or in
+production mode by first building it using `npm run build` and then starting it
+using `npm start`.
 
     npm run dev
-
-To start it in production mode, first build it using `npm run build` and then
-start it using `npm start`.
-
     npm run build
     npm start
 

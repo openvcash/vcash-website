@@ -13,6 +13,26 @@ export const getHost = isServer => {
 }
 
 /**
+ * Get available languages.
+ * @function languages
+ * @return {array} Available languages.
+ */
+export const languages = [
+  { language: 'en-US', name: 'English' },
+  { language: 'sl-SI', name: 'Slovenian' }
+]
+
+/**
+ * Get available locales.
+ * @function locales
+ * @return {array} Available locales.
+ */
+export const locales = languages.reduce((locales, locale) => {
+  locales.push(locale.language)
+  return locales
+}, [])
+
+/**
  * Read language cookie from req headers on server or directly on client.
  * @function readCookie
  * @param {boolean} isServer - Calling from server or client.
@@ -20,7 +40,6 @@ export const getHost = isServer => {
  * @return {string} Language.
  */
 export const readCookie = (isServer, req) => {
-  const locales = ['en-US', 'sl-SI']
   const language =
     isServer === true
       ? 'headers' in req === true

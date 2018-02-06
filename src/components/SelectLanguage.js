@@ -1,6 +1,7 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { set as setCookie } from 'js-cookie'
+import { languages } from '../utilities/common.js'
 
 /** Ant Design */
 import Select from 'antd/lib/select'
@@ -10,12 +11,7 @@ class SelectLanguage extends React.Component {
   constructor(props) {
     super(props)
     this.t = props.t
-
-    /** Available languages. */
-    this.languages = [
-      { language: 'en-US', name: 'English' },
-      { language: 'sl-SI', name: 'Slovenian' }
-    ]
+    this.languages = languages
   }
 
   /**
