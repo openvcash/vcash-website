@@ -8,10 +8,10 @@
   "homepage": "https://github.com/openvcash/vcash-website#readme",
   "scripts": {
     "build": "next build",
-    "dev": "node server.js",
+    "dev": "node src/server.js",
     "format": "prettier --write '{pages,src}/**/*.js' && eslint '{pages,src}/**/*.js'",
     "lint": "eslint '{pages,src}/**/*.js'",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node src/server.js"
   },
   "repository": {
     "type": "git",

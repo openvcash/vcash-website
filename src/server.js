@@ -7,9 +7,9 @@ const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 
 /** Required server-only stores. */
-const serveDocs = require('./src/stores/serveDocs.js')
-const serveNews = require('./src/stores/serveNews.js')
-const servePeers = require('./src/stores/servePeers.js')
+const serveDocs = require('./stores/serveDocs.js')
+const serveNews = require('./stores/serveNews.js')
+const servePeers = require('./stores/servePeers.js')
 
 /** Use MobX static rendering. */
 useStaticRendering(true)
@@ -23,7 +23,9 @@ app
     server.use(express.static('public'))
 
     /** Set favicon. */
-    server.use(favicon(join(__dirname, 'static', 'images', 'favicon.ico')))
+    server.use(
+      favicon(join(__dirname, '..', 'static', 'images', 'favicon.ico'))
+    )
 
     /** Allow data fetching from localhost:3000 to hostname:80. */
     server.use((req, res, next) => {
