@@ -1,10 +1,10 @@
-# Vcash website
-[![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Standard style guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+# Vcash Next.js website
+[![Gitter](https://badges.gitter.im/openvcash/vcash.svg)](https://gitter.im/openvcash/vcash?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Standard](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Vcash community website built using
-[Next.js](https://github.com/zeit/next.js/), with content from the original
-website, docs and white papers.
+Community website for [Vcash](https://vcash.info/), with contents from the
+original website, docs and white papers.
 
 ## Table of Contents
 - [Install from source](#install-from-source)
