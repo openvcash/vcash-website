@@ -1,6 +1,6 @@
-import { parse as parseCookie } from 'cookie'
-import { get as getCookie } from 'js-cookie'
-import www from '../../.www.json'
+const { parse } = require('cookie')
+const { get } = require('js-cookie')
+const www = require('../../.www.json')
 
 /**
  * Get client or server fetching host.
@@ -8,7 +8,7 @@ import www from '../../.www.json'
  * @param {boolean} isServer - Calling from server or client.
  * @return {string} Server or client host.
  */
-export const getHost = isServer => {
+const getHost = isServer => {
   return isServer === true ? www.server : www.client
 }
 
@@ -17,7 +17,7 @@ export const getHost = isServer => {
  * @function languages
  * @return {array} Available languages.
  */
-export const languages = [
+const languages = [
   { language: 'en-US', name: 'English' },
   { language: 'sl-SI', name: 'Slovenian' }
 ]
@@ -27,7 +27,7 @@ export const languages = [
  * @function locales
  * @return {array} Available locales.
  */
-export const locales = languages.reduce((locales, locale) => {
+const locales = languages.reduce((locales, locale) => {
   locales.push(locale.language)
   return locales
 }, [])
@@ -39,14 +39,13 @@ export const locales = languages.reduce((locales, locale) => {
  * @param {object} req - Request.
  * @return {string} Language.
  */
-export const readCookie = (isServer, req) => {
+const readCookie = (isServer, req) => {
   const language =
     isServer === true
       ? 'headers' in req === true
-        ? parseCookie(req.headers.cookie || 'language=en-US').language ||
-          'en-US'
+        ? parse(req.headers.cookie || 'language=en-US').language || 'en-US'
         : 'en-US'
-      : getCookie('language') || 'en-US'
+      : get('language') || 'en-US'
 
   /** Return default language if the one in cookie doesn't exist. */
   return locales.includes(language) === true ? language : 'en-US'
@@ -59,7 +58,7 @@ export const readCookie = (isServer, req) => {
  * @param {number} n - Length to shorten it to (+ ...).
  * @return {string} Shortened string.
  */
-export const shorten = (text, n) => {
+const shorten = (text, n) => {
   return text.length > n ? ''.concat(text.substr(0, n - 1), '..') : text
 }
 
@@ -71,6 +70,39 @@ export const shorten = (text, n) => {
  * @return {string} Unique 4-character uid.
  * @see {@link http://stackoverflow.com/a/6248722|StackOverflow}
  */
-export const shortUid = () => {
+const shortUid = () => {
   return ('0000' + ((Math.random() * 1679616) | 0).toString(36)).slice(-4)
+}
+
+/**
+ * Sort object keys alphabetically.
+ * @function sortObject
+ * @param {object} unsorted - Unsorted object.
+ * @return {object} Sorted object.
+ * @see {@link https://stackoverflow.com/a/31102605|StackOverflow}
+ */
+const sortObject = unsorted => {
+  return Object.keys(unsorted)
+    .sort()
+    .reduce((sorted, key) => {
+      /** Handle nested objects recursively. */
+      if (typeof unsorted[key] === 'object') {
+        sorted[key] = sortObject(unsorted[key])
+      } else {
+        sorted[key] = unsorted[key]
+      }
+
+      return sorted
+    }, {})
+}
+
+/** Export the common functions. */
+module.exports = {
+  getHost,
+  languages,
+  locales,
+  readCookie,
+  shorten,
+  shortUid,
+  sortObject
 }
