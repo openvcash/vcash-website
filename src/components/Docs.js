@@ -50,7 +50,7 @@ class Docs extends React.Component {
       menu.push(
         items[key].hasOwnProperty('key') === true ? (
           <Menu.Item key={items[key]['key']}>
-            {key.replace(/-/g, ' ')}
+            {key.replace(/-/g, ' ').replace('.md', '')}
           </Menu.Item>
         ) : (
           <Menu.SubMenu key={key} title={key}>

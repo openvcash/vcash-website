@@ -30,8 +30,7 @@ class Docs {
    */
   @computed
   get viewing() {
-    const id = this.id.split('_')
-
+    const id = ''.concat(this.id, '.md').split('_')
     return has(this.contents, id) === true
       ? get(this.contents, id)
       : { key: '', body: '' }

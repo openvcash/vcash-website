@@ -1,19 +1,20 @@
 const express = require('express')
-const favicon = require('serve-favicon')
+const icon = require('serve-favicon')
 const next = require('next')
 const { useStaticRendering } = require('mobx-react')
 const { join } = require('path')
+
+/** Initialize Next.js. */
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 
-/** Required server-only stores. */
-const serveDocs = require('./stores/serveDocs.js')
-const serveNews = require('./stores/serveNews.js')
-const servePeers = require('./stores/servePeers.js')
+/** Required server-only store. */
+const serveContents = require('./stores/serveContents.js')
 
 /** Use MobX static rendering. */
 useStaticRendering(true)
 
+/** Start and configure the Express server routes. */
 app
   .prepare()
   .then(() => {
@@ -22,10 +23,8 @@ app
     /** Set a public directory with contents accessible on /. */
     server.use(express.static('public'))
 
-    /** Set favicon. */
-    server.use(
-      favicon(join(__dirname, '..', 'static', 'images', 'favicon.ico'))
-    )
+    /** Set the favicon. */
+    server.use(icon(join(__dirname, '..', 'static', 'images', 'favicon.ico')))
 
     /** Allow data fetching from localhost:3000 to hostname:80. */
     server.use((req, res, next) => {
@@ -37,32 +36,21 @@ app
       next()
     })
 
-    /** Serve docs markdown files in JSON on /api/docs. */
-    server.get('/api/docs', (req, res) => {
-      res.writeHead(200, { 'Content-Type': 'application/json' })
-      return res.end(serveDocs.json)
-    })
+    /** Serve docs markdown files on /api/docs. */
+    server.get('/api/docs', (req, res) => res.end(serveContents.docs))
 
-    /** Serve news markdown files in JSON on /api/news. */
-    server.get('/api/news', (req, res) => {
-      res.writeHead(200, { 'Content-Type': 'application/json' })
-      return res.end(serveNews.json)
-    })
+    /** Serve news markdown files on /api/news. */
+    server.get('/api/news', (req, res) => res.end(serveContents.news))
 
     /** Serve network crawler data on /api/peers. */
-    server.get('/api/peers', (req, res) => {
-      res.writeHead(200, { 'Content-Type': 'application/json' })
-      return res.end(servePeers.json)
-    })
+    server.get('/api/peers', (req, res) => res.end(serveContents.peers))
+
+    /** Serve hard-coded bootstrap contacts on /n. */
+    server.get('/n', (req, res) => res.end(serveContents.n))
 
     /** Pass along the id to /docs page. */
     server.get('/docs/:id', (req, res) => {
       app.render(req, res, '/docs', { id: req.params.id })
-    })
-
-    /** Serve hard-coded bootstrap contacts on /n. */
-    server.get('/n', (req, res) => {
-      return res.sendFile(join(__dirname, 'static', 'contents', 'n.json'))
     })
 
     /** Pass along the id to /news page. */
@@ -70,10 +58,8 @@ app
       app.render(req, res, '/news', { id: req.params.id })
     })
 
-    /** Pass everything else to app request handler. */
-    server.get('*', (req, res) => {
-      return handle(req, res)
-    })
+    /** Pass everything else to the app request handler. */
+    server.get('*', (req, res) => handle(req, res))
 
     /** Listen on default port 3000 or provided port. */
     server.listen(process.env.PORT || 3000, err => {
