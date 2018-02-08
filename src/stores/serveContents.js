@@ -135,9 +135,9 @@ class ServeContents {
 
     for (let item of items) {
       const itemPath = onlyUpdated === true ? item : join(dir, item)
-      const itemSplit = itemPath.substr(this.contentsDir.length + 1).split('/')
+      const itemRel = itemPath.substr(this.contentsDir.length + 1).split('/')
       const itemExt = extname(itemPath)
-      const itemRoot = itemSplit[0]
+      const itemRoot = itemRel[0]
 
       /** Removed or moved items will throw an error on lstat, handled below. */
       try {
@@ -146,7 +146,7 @@ class ServeContents {
 
         /** Handle directories recursively and files sequentially. */
         if (itemStat.isDirectory() === true) {
-          this.update(false, itemSplit.join('/'))
+          this.update(false, itemRel.join('/'))
         } else {
           /** Read the file. */
           let file = await readFile(itemPath, 'utf-8')
@@ -155,21 +155,21 @@ class ServeContents {
           if (itemExt === '.md') file = frontMatter(file)
           if (itemExt === '.json') file = JSON.parse(file)
 
-          /** Create the keys for docs while the absolute path is present. */
+          /** Create the keys for docs while the relative path is present. */
           if (itemRoot === 'docs') {
             /** Remove itemRoot, join on _ and remove the .md extension. */
-            file.key = itemSplit
+            file.key = itemRel
               .slice(1)
               .join('_')
               .split(itemExt)[0]
           }
 
           /** Set the file. */
-          set(this.items, itemSplit, file)
+          set(this.items, itemRel, file)
         }
       } catch (e) {
         /** Unset removed or moved files and folders. */
-        unset(this.items, itemSplit)
+        unset(this.items, itemRel)
       }
     }
 
