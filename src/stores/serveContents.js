@@ -1,5 +1,5 @@
 const { extendObservable, reaction } = require('mobx')
-const { set, unset } = require('lodash')
+const { debounce, set, unset } = require('lodash')
 const { extname, join } = require('path')
 const { promisify } = require('util')
 const { sortObject } = require('../utilities/common.js')
@@ -16,9 +16,10 @@ class ServeContents {
   /**
    * @prop {string} contentsDir - Absolute path of the static/contents/ dir.
    * @prop {object} items - Non-observed version of contents.
-   * @prop {object} contents - Read and parsed contents files.
+   * @prop {object} contents - Read and parsed static/contents/ files.
    * @prop {array} updatedItems - Items marked as updated or new by watch().
-   * @prop {boolean} updated - Indicating if update() ran or is running.
+   * @prop {boolean} updateInProgress - File update is in progress.
+   * @prop {boolean} updateAgain - Update again after the one in progress.
    * @prop {function} docs - Docs computed function.
    * @prop {function} news - News computed function.
    * @prop {function} n - Hard-coded bootstrap contacts computed function.
@@ -32,7 +33,8 @@ class ServeContents {
     extendObservable(this, {
       contents: {},
       updatedItems: [],
-      updated: false,
+      updateInProgress: false,
+      updateAgain: false,
       get docs() {
         if ('docs' in this.contents === false) return '{}'
         return JSON.stringify(sortObject(this.contents['docs']))
@@ -57,7 +59,7 @@ class ServeContents {
           return posts
         }, [])
 
-        /** Return news sorted by datetime DESC */
+        /** Return news sorted by timestamp DESC. */
         return JSON.stringify(
           newsPosts.sort((a, b) => {
             if (a.timestamp > b.timestamp) return -1
@@ -82,45 +84,45 @@ class ServeContents {
       (docs, news, n, peers) => console.log('> Updated static/contents/ cache')
     )
 
-    /** Auto-update the contents 10s after changes have been detected. */
+    /** Auto-update the contents after changes have been detected. */
     reaction(
       () => this.updatedItems.length,
-      updatedItems => {
-        if (updatedItems > 0) this.update(true)
-      },
-      { delay: 10 * 1000 }
+      debounce(updatedItems => {
+        if (updatedItems > 0) this.updateStart(true)
+      }, 3 * 1000)
     )
 
-    /** Auto-set the contents 5s after the update was indicated. */
+    /** Update again if the items changed during the previous update. */
     reaction(
-      () => this.updated,
-      updated => {
-        if (updated === true) this.setContents()
-      },
-      { delay: 5 * 1000 }
+      () => this.updateInProgress,
+      updateInProgress => {
+        if (updateInProgress === true) return
+        if (this.updateAgain === true) this.updateStart(true)
+      }
     )
 
     /** Recursively watch the static/contents/ directory for changes. */
     watch(this.contentsDir, { recursive: true }, (eventType, filePath) => {
-      /** Skip duplicate items. */
-      if (this.updatedItems.includes(filePath) === false) {
-        this.updatedItems.push(filePath)
-      }
+      if (this.updatedItems.includes(filePath) === true) return
+      this.updatedItems.push(filePath)
     })
 
+    /** Debounce contents setting for 2s until the update is completed. */
+    this.setContentsDebounce = debounce(() => {
+      this.setContents()
+      this.updateInProgress = false
+    }, 2 * 1000)
+
     /** Update files on initialization. */
-    this.update()
+    this.updateStart()
   }
 
   /**
-   * Set contents.
+   * Set the contents.
    * @function setContents
    */
   setContents() {
     this.contents = this.items
-
-    /** Reset the updated indicator. */
-    this.updated = false
   }
 
   /**
@@ -132,6 +134,12 @@ class ServeContents {
   async update(onlyUpdated = false, subDir = '') {
     let dir = subDir === '' ? this.contentsDir : join(this.contentsDir, subDir)
     let items = onlyUpdated === true ? this.updatedItems : await readdir(dir)
+
+    /** Reset the updated items on first pass. */
+    if (onlyUpdated === true) this.updatedItems = []
+
+    /** Set update in progress flag. */
+    if (this.updateInProgress === false) this.updateInProgress = true
 
     for (let item of items) {
       const itemPath = onlyUpdated === true ? item : join(dir, item)
@@ -151,9 +159,9 @@ class ServeContents {
           /** Read the file. */
           let file = await readFile(itemPath, 'utf-8')
 
-          /** Parse markdown and JSON files. */
-          if (itemExt === '.md') file = frontMatter(file)
+          /** Parse JSON and markdown files. */
           if (itemExt === '.json') file = JSON.parse(file)
+          if (itemExt === '.md') file = frontMatter(file)
 
           /** Create the keys for docs while the relative path is present. */
           if (itemRoot === 'docs') {
@@ -168,16 +176,24 @@ class ServeContents {
           set(this.items, itemRel, file)
         }
       } catch (e) {
-        /** Unset removed or moved files and folders. */
+        /** Unset removed or moved files and directories. */
         unset(this.items, itemRel)
       }
     }
 
-    /** Set the updated indicator. */
-    this.updated = true
+    /** Continue debouncing contents setting until the update is completed. */
+    this.setContentsDebounce()
+  }
 
-    /** Reset the updated items. */
-    if (this.updatedItems.length > 0) this.updatedItems = []
+  /**
+   * Start the update or set another if one is already in progress.
+   * @function updateStart
+   * @param {boolean} onlyUpdated - Only updated files.
+   */
+  updateStart(onlyUpdated = false) {
+    if (this.updateAgain === true) return
+    if (this.updateInProgress === true) this.updateAgain = true
+    if (this.updateInProgress === false) this.update(onlyUpdated)
   }
 }
 
