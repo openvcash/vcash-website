@@ -1,7 +1,7 @@
 {
   "name": "vcash-website",
   "productName": "Vcash Next.js website",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "description": "Community website for Vcash.",
   "author": "whphhg <whphhg@protonmail.ch>",
   "license": "GPL-3.0",
@@ -35,7 +35,7 @@
     "lodash": "4.17.5",
     "mobx": "3.5.1",
     "mobx-react": "4.4.2",
-    "next": "5.0.0",
+    "next": "5.1.0",
     "nprogress": "0.2.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
@@ -61,7 +61,7 @@
     "node-watch": "0.5.7",
     "prettier": "1.10.2",
     "serve-favicon": "2.4.5",
-    "webpack": "4.0.0",
+    "webpack": "4.8.3",
     "webpack-dev-middleware": "2.0.6"
   }
 }
