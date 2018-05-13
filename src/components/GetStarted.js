@@ -48,7 +48,12 @@ class GetStarted extends React.Component {
                         style={{ minWidth: '113px' }}
                       >
                         <p>iOS</p>
-                        <span>{this.t('comingSoon')}</span>
+                        <a
+                          href="https://itunes.apple.com/app/coinomi-wallet/id1333588809"
+                          target="_blank"
+                        >
+                          App Store
+                        </a>
                       </div>
                     </div>
                   </div>
